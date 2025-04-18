@@ -93,7 +93,7 @@
       "MO(2)"
     ],
     [
-      "KC_NO",
+      "KC_GRV",
       "KC_F1",
       "KC_F2",
       "KC_F3",
@@ -117,7 +117,7 @@
       "KC_NO",
       "KC_NO",
       "KC_NO",
-      "MACRO01",
+      "KC_NO",
       "KC_NO",
       "KC_NO",
       "KC_NO",
@@ -137,7 +137,7 @@
       "KC_NO",
       "KC_NO",
       "KC_NO",
-      "KC_NO",
+      "MACRO01",
       "KC_NO",
       "KC_NO",
       "KC_NO",
