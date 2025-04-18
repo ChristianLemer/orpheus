@@ -7,7 +7,12 @@ const config = require(globalConfig);
 // Override with project-specific scopes
 config.scopes = [
     'dz',
-    'README/LICENSE'
+    'keychron-q0',
+    'keychron-q4',
+    'keychron-q9',
+    'keychron-q9-plus',
+    'README/LICENSE',
+    'git'
 ];
 
 // You can also add project-specific types or other customizations
