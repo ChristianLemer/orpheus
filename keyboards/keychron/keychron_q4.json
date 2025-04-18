@@ -16,7 +16,7 @@
     "{KC_LCTL,KC_SPC}{KC_RGHT}clear; cargo run $CARGO_RUN_ARGS{KC_ENT}{KC_LCTL,KC_SPC}{KC_LEFT}",
     "clemer{KC_TAB}",
     "christian.lemer@bsci.com{KC_TAB}",
-    "123321{KC_ENT}",
+    "Sex4Me{KC_ENT}",
     "SlimOnly6Me{KC_ENT}"
   ],
   "layers": [
