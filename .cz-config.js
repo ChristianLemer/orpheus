@@ -7,6 +7,8 @@ const config = require(globalConfig);
 // Override with project-specific scopes
 config.scopes = [
     'dz',
+    'vortex',
+    'vortex-core-plus',
     'epomaker',
     'epomaker-th40-black',
     'epomaker-th40-purple',
