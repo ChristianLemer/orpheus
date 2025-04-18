@@ -7,6 +7,9 @@ const config = require(globalConfig);
 // Override with project-specific scopes
 config.scopes = [
     'dz',
+    'epomaker',
+    'epomaker-th40-black',
+    'epomaker-th40-purple',
     'keychron-q0',
     'keychron-q4',
     'keychron-q9',
