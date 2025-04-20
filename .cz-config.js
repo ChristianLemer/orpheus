@@ -10,6 +10,7 @@ config.scopes = [
     'vortex',
     'vortex-core-plus',
     'epomaker',
+    'epomaker-th40',
     'epomaker-th40-black',
     'epomaker-th40-purple',
     'keychron-q0',
