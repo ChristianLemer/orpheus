@@ -17,6 +17,8 @@ config.scopes = [
     'keychron-q4',
     'keychron-q9',
     'keychron-q9-plus',
+    'windstudio',
+    'windstudio-hola-mini',
     'README/LICENSE',
     'git'
 ];
