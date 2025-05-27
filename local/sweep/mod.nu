@@ -1,0 +1,20 @@
+#
+# Local module
+
+use meth/doc
+
+
+#
+# Sweep Utilities
+# 
+export def main [
+  --find (-f): string # string to find in command names
+] {
+  doc module local --find $find
+}
+
+# Run system profiler
+export def profiler [
+] {
+  system_profiler SPUSBDataType | grep -A 10 -B 5 -i ferris
+}
