@@ -1,0 +1,462 @@
+<svg width="920" height="3400" viewBox="0 0 920 3400" xmlns="http://www.w3.org/2000/svg" style="font-family: 'SF Mono', 'Fira Code', monospace;">
+  <style>
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #1a1a2e; }
+
+      /* Gradients: override stop colors */
+      #key-fill stop:first-child { stop-color: #2d2d3a; }
+      #key-fill stop:last-child { stop-color: #23232f; }
+      #mod-fill stop:first-child { stop-color: #1a2a3d; }
+      #mod-fill stop:last-child { stop-color: #152535; }
+
+      /* Panel frames — colors stay vivid in dark mode */
+      rect[stroke="#dee2e6"] { stroke: #3d3d50; }
+      rect[stroke="#90caf9"] { stroke: #4a7ab5; }
+      rect[stroke="#e06520"] { stroke: #e06520; }
+      rect[stroke="#5a9e10"] { stroke: #5a9e10; }
+      rect[stroke="#0891b2"] { stroke: #0891b2; }
+      rect[stroke="#c026d3"] { stroke: #c026d3; }
+
+      /* Text colors */
+      text[fill="#2d3436"] { fill: #e0e0e0; }
+      text[fill="#636e72"] { fill: #9e9e9e; }
+      text[fill="#b0bec5"] { fill: #707a80; }
+
+      /* Title/annotation colors */
+      text[fill="#1565c0"] { fill: #64b5f6; }
+      text[fill="#5c9fd4"] { fill: #90caf9; }
+      text[fill="#e06520"] { fill: #f0b898; }
+      text[fill="#5a9e10"] { fill: #c5d68a; }
+      text[fill="#0891b2"] { fill: #8cccd6; }
+      text[fill="#c026d3"] { fill: #d4a0d4; }
+
+      /* Ghost keys */
+      rect[fill="#f5f5f5"] { fill: #2a2a3a; opacity: 0.7; }
+      rect[stroke="#e0e0e0"] { stroke: #4a4a5a; }
+
+      /* Layer-colored key backgrounds */
+      rect[fill="#fde0cc"] { fill: #5a3518; }
+      rect[fill="#e8f0c8"] { fill: #3a4a18; }
+      rect[fill="#6ee0f0"] { fill: #205868; }
+      rect[fill="#e070e0"] { fill: #582058; }
+
+      /* Thumb backgrounds (more saturated) */
+      rect[fill="#f0b898"] { fill: #6a3a18; }
+      rect[fill="#c5d68a"] { fill: #3a4a14; }
+      rect[fill="#30d0e0"] { fill: #186878; }
+      rect[fill="#e040e0"] { fill: #682068; }
+
+      /* Concept boxes and examples */
+      rect[fill="#f5f9ff"] { fill: #1a2030; }
+      rect[stroke="#90caf9"] { stroke: #4a7ab5; }
+
+      /* Shadow filter adaptation */
+      #shadow feDropShadow { flood-color: black; flood-opacity: 0.4; }
+    }
+  </style>
+  <defs>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="104%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.15"/>
+    </filter>
+    <linearGradient id="key-fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f8f9fa"/><stop offset="100%" stop-color="#e9ecef"/></linearGradient>
+    <linearGradient id="mod-fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e8f4fd"/><stop offset="100%" stop-color="#d0e8f7"/></linearGradient>
+    <linearGradient id="thumb-fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fff3e0"/><stop offset="100%" stop-color="#ffe0b2"/></linearGradient>
+    <linearGradient id="mystery-fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fff8e1"/><stop offset="100%" stop-color="#ffecb3"/></linearGradient>
+  </defs>
+
+  <!-- Background rect: transparent in light, dark in dark mode -->
+  <rect class="bg" width="920" height="3400" fill="transparent"/>
+
+  <!-- ╭─────────────────────────────────────────────────────────────╮ -->
+  <!-- │  PANNEAU 1 — QWERTY                                         │ -->
+  <!-- ╰─────────────────────────────────────────────────────────────╯ -->
+  <g transform="translate(0, 0)">
+    <!-- Panel frame -->
+    <rect x="15" y="10" width="890" height="420" rx="16" fill="none" stroke="#dee2e6" stroke-width="1.5"/>
+
+    <!-- Title block -->
+    <text x="460" y="45" text-anchor="middle" font-size="20" font-weight="700" fill="#2d3436">It's a keyboard.</text>
+    <text x="460" y="68" text-anchor="middle" font-size="12" fill="#636e72">34 keys. Split in two. Column-staggered to match your fingers' natural reach.</text>
+    <text x="460" y="86" text-anchor="middle" font-size="12" fill="#636e72">The letters are exactly where you expect them — QWERTY, nothing exotic.</text>
+
+    <!-- LEFT HALF row 0 -->
+    <g transform="translate(55, 110)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">Q</text></g>
+    <g transform="translate(113, 102)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">W</text></g>
+    <g transform="translate(171, 96)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">E</text></g>
+    <g transform="translate(229, 102)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">R</text></g>
+    <g transform="translate(287, 110)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">T</text></g>
+    <!-- LEFT row 1 -->
+    <g transform="translate(55, 166)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">A</text></g>
+    <g transform="translate(113, 158)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">S</text></g>
+    <g transform="translate(171, 152)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">D</text></g>
+    <g transform="translate(229, 158)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">F</text></g>
+    <g transform="translate(287, 166)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">G</text></g>
+    <!-- LEFT row 2 -->
+    <g transform="translate(55, 222)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">Z</text></g>
+    <g transform="translate(113, 214)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">X</text></g>
+    <g transform="translate(171, 208)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">C</text></g>
+    <g transform="translate(229, 214)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">V</text></g>
+    <g transform="translate(287, 222)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">B</text></g>
+    <!-- LEFT thumbs: outer=Oper(purple), inner=Mouse(teal) -->
+    <g transform="translate(203, 286)"><rect width="56" height="44" rx="8" fill="#30d0e0" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><rect x="10" y="30" width="36" height="12" rx="6" fill="#0891b2"/><text x="28" y="39" text-anchor="middle" font-size="7" fill="white" font-weight="600">Oper.</text></g>
+    <g transform="translate(267, 294)"><rect width="56" height="44" rx="8" fill="#e040e0" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><text x="28" y="24" text-anchor="middle" font-size="10" fill="#2d3436">CapsLk</text><rect x="10" y="30" width="36" height="12" rx="6" fill="#c026d3"/><text x="28" y="39" text-anchor="middle" font-size="7" fill="white" font-weight="600">Mouse</text></g>
+
+    <!-- RIGHT HALF row 0 -->
+    <g transform="translate(540, 110)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">Y</text></g>
+    <g transform="translate(598, 102)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">U</text></g>
+    <g transform="translate(656, 96)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">I</text></g>
+    <g transform="translate(714, 102)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">O</text></g>
+    <g transform="translate(772, 110)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">P</text></g>
+    <!-- RIGHT row 1 -->
+    <g transform="translate(540, 166)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">H</text></g>
+    <g transform="translate(598, 158)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">J</text></g>
+    <g transform="translate(656, 152)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">K</text></g>
+    <g transform="translate(714, 158)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">L</text></g>
+    <g transform="translate(772, 166)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">;</text></g>
+    <!-- RIGHT row 2 -->
+    <g transform="translate(540, 222)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">N</text></g>
+    <g transform="translate(598, 214)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">M</text></g>
+    <g transform="translate(656, 208)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">,</text></g>
+    <g transform="translate(714, 214)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">.</text></g>
+    <g transform="translate(772, 222)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">/</text></g>
+    <!-- RIGHT thumbs: inner=Nav(green), outer=Sym(red) -->
+    <g transform="translate(556, 294)"><rect width="56" height="44" rx="8" fill="#f0b898" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><text x="28" y="24" text-anchor="middle" font-size="10" fill="#2d3436">Space</text><rect x="10" y="30" width="36" height="12" rx="6" fill="#e06520"/><text x="28" y="39" text-anchor="middle" font-size="7" fill="white" font-weight="600">Nav</text></g>
+    <g transform="translate(620, 286)"><rect width="56" height="44" rx="8" fill="#c5d68a" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><rect x="10" y="30" width="36" height="12" rx="6" fill="#5a9e10"/><text x="28" y="39" text-anchor="middle" font-size="7" fill="white" font-weight="600">Sym.</text></g>
+
+    <!-- Bottom text -->
+    <text x="460" y="370" text-anchor="middle" font-size="11" fill="#636e72">30 letter and punctuation keys, Space, CapsLock — you already know where everything is.</text>
+    <text x="460" y="390" text-anchor="middle" font-size="11" fill="#636e72">34 keys total. That's it. No number row, no function keys, no dedicated arrows.</text>
+    <text x="460" y="410" text-anchor="middle" font-size="11" fill="#b0bec5" font-style="italic">But where are Shift, Ctrl, Alt, Enter, Backspace, numbers, arrows...?</text>
+  </g>
+
+  <!-- ╭─────────────────────────────────────────────────────────────╮ -->
+  <!-- │  PANNEAU 2 — HOME-ROW MODS                                   │ -->
+  <!-- ╰─────────────────────────────────────────────────────────────╯ -->
+  <g transform="translate(0, 450)">
+    <!-- Panel frame -->
+    <rect x="15" y="10" width="890" height="720" rx="16" fill="none" stroke="#90caf9" stroke-width="1.5"/>
+
+    <!-- Title block -->
+    <text x="460" y="45" text-anchor="middle" font-size="20" font-weight="700" fill="#1565c0">One key, two lives.</text>
+    <text x="460" y="70" text-anchor="middle" font-size="12" fill="#5c9fd4">Every home-row key is also a modifier — tap quickly for the letter, hold for the modifier.</text>
+    <text x="460" y="90" text-anchor="middle" font-size="12" fill="#5c9fd4">Your fingers never leave home position. Shift, Ctrl, Alt, Gui — all under your fingertips.</text>
+
+    <!-- Concept diagram: tap vs hold -->
+    <g transform="translate(160, 110)">
+      <rect x="0" y="0" width="600" height="60" rx="8" fill="#f5f9ff" stroke="#90caf9" stroke-width="0.5"/>
+      <text x="20" y="24" font-size="11" fill="#1565c0" font-weight="600">Tap quickly:</text>
+      <text x="20" y="44" font-size="11" fill="#636e72">A S D F — just letters, normal typing speed</text>
+      <text x="320" y="24" font-size="11" fill="#1565c0" font-weight="600">Hold down:</text>
+      <text x="320" y="44" font-size="11" fill="#636e72">Shift  Ctrl  Alt  Gui — modifier activates</text>
+    </g>
+
+    <!-- LEFT HALF - home row highlighted -->
+    <!-- Row 0 (dimmed) -->
+    <g transform="translate(55, 200)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5" opacity="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436" opacity="0.5">Q</text></g>
+    <g transform="translate(113, 192)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5" opacity="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436" opacity="0.5">W</text></g>
+    <g transform="translate(171, 186)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5" opacity="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436" opacity="0.5">E</text></g>
+    <g transform="translate(229, 192)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5" opacity="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436" opacity="0.5">R</text></g>
+    <g transform="translate(287, 200)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5" opacity="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436" opacity="0.5">T</text></g>
+    <!-- Row 1 (HOME ROW - highlighted) -->
+    <g transform="translate(55, 256)"><rect width="52" height="48" rx="6" fill="url(#mod-fill)" filter="url(#shadow)" stroke="#90caf9" stroke-width="1.5"/><text x="26" y="28" text-anchor="middle" font-size="14" fill="#2d3436">A</text><rect x="11" y="34" width="30" height="12" rx="6" fill="#1565c0"/><text x="26" y="43" text-anchor="middle" font-size="8" fill="white" font-weight="600">Shift</text></g>
+    <g transform="translate(113, 248)"><rect width="52" height="48" rx="6" fill="url(#mod-fill)" filter="url(#shadow)" stroke="#90caf9" stroke-width="1.5"/><text x="26" y="28" text-anchor="middle" font-size="14" fill="#2d3436">S</text><rect x="11" y="34" width="30" height="12" rx="6" fill="#1565c0"/><text x="26" y="43" text-anchor="middle" font-size="8" fill="white" font-weight="600">Ctrl</text></g>
+    <g transform="translate(171, 242)"><rect width="52" height="48" rx="6" fill="url(#mod-fill)" filter="url(#shadow)" stroke="#90caf9" stroke-width="1.5"/><text x="26" y="28" text-anchor="middle" font-size="14" fill="#2d3436">D</text><rect x="11" y="34" width="30" height="12" rx="6" fill="#1565c0"/><text x="26" y="43" text-anchor="middle" font-size="8" fill="white" font-weight="600">Alt</text></g>
+    <g transform="translate(229, 248)"><rect width="52" height="48" rx="6" fill="url(#mod-fill)" filter="url(#shadow)" stroke="#90caf9" stroke-width="1.5"/><text x="26" y="28" text-anchor="middle" font-size="14" fill="#2d3436">F</text><rect x="11" y="34" width="30" height="12" rx="6" fill="#1565c0"/><text x="26" y="43" text-anchor="middle" font-size="8" fill="white" font-weight="600">Gui</text></g>
+    <g transform="translate(287, 256)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5" opacity="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436" opacity="0.5">G</text></g>
+    <!-- Row 2 (dimmed) -->
+    <g transform="translate(55, 312)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5" opacity="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436" opacity="0.5">Z</text></g>
+    <g transform="translate(113, 304)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5" opacity="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436" opacity="0.5">X</text></g>
+    <g transform="translate(171, 298)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5" opacity="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436" opacity="0.5">C</text></g>
+    <g transform="translate(229, 304)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5" opacity="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436" opacity="0.5">V</text></g>
+    <g transform="translate(287, 312)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5" opacity="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436" opacity="0.5">B</text></g>
+    <!-- Left thumbs: Oper(purple), Mouse(teal) -->
+    <g transform="translate(203, 376)"><rect width="56" height="44" rx="8" fill="#30d0e0" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><rect x="10" y="30" width="36" height="12" rx="6" fill="#0891b2"/><text x="28" y="39" text-anchor="middle" font-size="7" fill="white" font-weight="600">Oper.</text></g>
+    <g transform="translate(267, 384)"><rect width="56" height="44" rx="8" fill="#e040e0" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><text x="28" y="24" text-anchor="middle" font-size="10" fill="#2d3436">CapsLk</text><rect x="10" y="30" width="36" height="12" rx="6" fill="#c026d3"/><text x="28" y="39" text-anchor="middle" font-size="7" fill="white" font-weight="600">Mouse</text></g>
+
+    <!-- RIGHT HALF -->
+    <!-- Row 0 (dimmed) -->
+    <g transform="translate(540, 200)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5" opacity="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436" opacity="0.5">Y</text></g>
+    <g transform="translate(598, 192)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5" opacity="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436" opacity="0.5">U</text></g>
+    <g transform="translate(656, 186)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5" opacity="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436" opacity="0.5">I</text></g>
+    <g transform="translate(714, 192)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5" opacity="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436" opacity="0.5">O</text></g>
+    <g transform="translate(772, 200)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5" opacity="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436" opacity="0.5">P</text></g>
+    <!-- Row 1 (HOME ROW - highlighted, mirrored SCAG) -->
+    <g transform="translate(540, 256)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5" opacity="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436" opacity="0.5">H</text></g>
+    <g transform="translate(598, 248)"><rect width="52" height="48" rx="6" fill="url(#mod-fill)" filter="url(#shadow)" stroke="#90caf9" stroke-width="1.5"/><text x="26" y="28" text-anchor="middle" font-size="14" fill="#2d3436">J</text><rect x="11" y="34" width="30" height="12" rx="6" fill="#1565c0"/><text x="26" y="43" text-anchor="middle" font-size="8" fill="white" font-weight="600">Gui</text></g>
+    <g transform="translate(656, 242)"><rect width="52" height="48" rx="6" fill="url(#mod-fill)" filter="url(#shadow)" stroke="#90caf9" stroke-width="1.5"/><text x="26" y="28" text-anchor="middle" font-size="14" fill="#2d3436">K</text><rect x="11" y="34" width="30" height="12" rx="6" fill="#1565c0"/><text x="26" y="43" text-anchor="middle" font-size="8" fill="white" font-weight="600">Alt</text></g>
+    <g transform="translate(714, 248)"><rect width="52" height="48" rx="6" fill="url(#mod-fill)" filter="url(#shadow)" stroke="#90caf9" stroke-width="1.5"/><text x="26" y="28" text-anchor="middle" font-size="14" fill="#2d3436">L</text><rect x="11" y="34" width="30" height="12" rx="6" fill="#1565c0"/><text x="26" y="43" text-anchor="middle" font-size="8" fill="white" font-weight="600">Ctrl</text></g>
+    <g transform="translate(772, 256)"><rect width="52" height="48" rx="6" fill="url(#mod-fill)" filter="url(#shadow)" stroke="#90caf9" stroke-width="1.5"/><text x="26" y="28" text-anchor="middle" font-size="14" fill="#2d3436">;</text><rect x="11" y="34" width="30" height="12" rx="6" fill="#1565c0"/><text x="26" y="43" text-anchor="middle" font-size="8" fill="white" font-weight="600">Shift</text></g>
+    <!-- Row 2 (dimmed) -->
+    <g transform="translate(540, 312)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5" opacity="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436" opacity="0.5">N</text></g>
+    <g transform="translate(598, 304)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5" opacity="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436" opacity="0.5">M</text></g>
+    <g transform="translate(656, 298)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5" opacity="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436" opacity="0.5">,</text></g>
+    <g transform="translate(714, 304)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5" opacity="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436" opacity="0.5">.</text></g>
+    <g transform="translate(772, 312)"><rect width="52" height="48" rx="6" fill="url(#key-fill)" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5" opacity="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436" opacity="0.5">/</text></g>
+    <!-- Right thumbs: Nav(green), Sym(red) -->
+    <g transform="translate(556, 384)"><rect width="56" height="44" rx="8" fill="#f0b898" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><text x="28" y="24" text-anchor="middle" font-size="10" fill="#2d3436">Space</text><rect x="10" y="30" width="36" height="12" rx="6" fill="#e06520"/><text x="28" y="39" text-anchor="middle" font-size="7" fill="white" font-weight="600">Nav</text></g>
+    <g transform="translate(620, 376)"><rect width="56" height="44" rx="8" fill="#c5d68a" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><rect x="10" y="30" width="36" height="12" rx="6" fill="#5a9e10"/><text x="28" y="39" text-anchor="middle" font-size="7" fill="white" font-weight="600">Sym.</text></g>
+
+    <!-- Finger-to-mod mapping -->
+    <g transform="translate(80, 450)">
+      <text x="0" y="0" font-size="11" fill="#1565c0" font-weight="600">Left hand (GACS, pinky → index):</text>
+      <text x="0" y="20" font-size="11" fill="#636e72">Pinky = Shift · Ring = Ctrl · Middle = Alt · Index = Gui</text>
+    </g>
+    <g transform="translate(500, 450)">
+      <text x="0" y="0" font-size="11" fill="#1565c0" font-weight="600">Right hand (mirrored, index → pinky):</text>
+      <text x="0" y="20" font-size="11" fill="#636e72">Index = Gui · Middle = Alt · Ring = Ctrl · Pinky = Shift</text>
+    </g>
+
+    <!-- Usage examples -->
+    <g transform="translate(80, 500)">
+      <rect x="-10" y="-14" width="780" height="80" rx="8" fill="#f5f9ff" stroke="#90caf9" stroke-width="0.5"/>
+      <text x="0" y="0" font-size="11" fill="#1565c0" font-weight="600">Examples:</text>
+      <text x="0" y="20" font-size="11" fill="#636e72">Hold A + tap K → Shift+K (capital K)</text>
+      <text x="0" y="38" font-size="11" fill="#636e72">Hold S + tap C → Ctrl+C (copy)</text>
+      <text x="0" y="56" font-size="11" fill="#636e72">Hold F + tap T → Gui+T (new browser tab on macOS)</text>
+      <text x="350" y="20" font-size="11" fill="#636e72">Hold L + tap S → Ctrl+S (save)</text>
+      <text x="350" y="38" font-size="11" fill="#636e72">Hold ; + tap A → Shift+A (capital A)</text>
+      <text x="350" y="56" font-size="11" fill="#636e72">The same finger = the same modifier. Always.</text>
+    </g>
+
+    <!-- Bottom note -->
+    <text x="460" y="620" text-anchor="middle" font-size="11" fill="#5c9fd4" font-style="italic">This is how 34 keys replace 104 — modifiers live inside the letters you already type.</text>
+    <text x="460" y="642" text-anchor="middle" font-size="11" fill="#5c9fd4">Next: what's behind those <tspan fill="#f57c00" font-weight="600">?</tspan> thumb keys...</text>
+  </g>
+  <!-- ╭─────────────────────────────────────────────────────────────╮ -->
+  <!-- │  PANNEAU 3 — NAV (Space hold)                                │ -->
+  <!-- ╰─────────────────────────────────────────────────────────────╯ -->
+  <g transform="translate(0, 1200)">
+    <rect x="15" y="10" width="890" height="480" rx="16" fill="none" stroke="#e06520" stroke-width="1.5"/>
+    <text x="460" y="45" text-anchor="middle" font-size="20" font-weight="700" fill="#e06520">Hold Space → Numbers, Navigation, Editing</text>
+    <text x="460" y="68" text-anchor="middle" font-size="12" fill="#e06520">The first <tspan fill="#f57c00" font-weight="600">?</tspan> revealed — your right thumb's most frequent key unlocks the most used layer.</text>
+    <text x="460" y="88" text-anchor="middle" font-size="12" fill="#e06520">Numbers in their standard row, arrows on home row (vim-style), editing keys on left with mods.</text>
+
+    <!-- LEFT row 0: 1 2 3 4 5 -->
+    <g transform="translate(55, 110)"><rect width="52" height="48" rx="6" fill="#fde0cc" filter="url(#shadow)" stroke="#e06520" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">1</text></g>
+    <g transform="translate(113, 102)"><rect width="52" height="48" rx="6" fill="#fde0cc" filter="url(#shadow)" stroke="#e06520" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">2</text></g>
+    <g transform="translate(171, 96)"><rect width="52" height="48" rx="6" fill="#fde0cc" filter="url(#shadow)" stroke="#e06520" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">3</text></g>
+    <g transform="translate(229, 102)"><rect width="52" height="48" rx="6" fill="#fde0cc" filter="url(#shadow)" stroke="#e06520" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">4</text></g>
+    <g transform="translate(287, 110)"><rect width="52" height="48" rx="6" fill="#fde0cc" filter="url(#shadow)" stroke="#e06520" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">5</text></g>
+    <!-- LEFT row 1: Tab Esc Bksp Enter Del -->
+    <g transform="translate(55, 166)"><rect width="52" height="48" rx="6" fill="#fde0cc" filter="url(#shadow)" stroke="#e06520" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="12" fill="#2d3436">Tab</text></g>
+    <g transform="translate(113, 158)"><rect width="52" height="48" rx="6" fill="#fde0cc" filter="url(#shadow)" stroke="#e06520" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="12" fill="#2d3436">Esc</text></g>
+    <g transform="translate(171, 152)"><rect width="52" height="48" rx="6" fill="#fde0cc" filter="url(#shadow)" stroke="#e06520" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="11" fill="#2d3436">Bksp</text></g>
+    <g transform="translate(229, 158)"><rect width="52" height="48" rx="6" fill="#fde0cc" filter="url(#shadow)" stroke="#e06520" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="11" fill="#2d3436">Enter</text></g>
+    <g transform="translate(287, 166)"><rect width="52" height="48" rx="6" fill="#fde0cc" filter="url(#shadow)" stroke="#e06520" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="11" fill="#2d3436">Del</text></g>
+    <!-- LEFT row 2 (ghost + Ins) -->
+    <g transform="translate(55, 222)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <g transform="translate(113, 214)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <g transform="translate(171, 208)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <g transform="translate(229, 214)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <g transform="translate(287, 222)"><rect width="52" height="48" rx="6" fill="#fde0cc" filter="url(#shadow)" stroke="#e06520" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="11" fill="#2d3436">Ins</text></g>
+    <!-- LEFT thumbs: Oper(purple), Mouse(teal) -->
+    <g transform="translate(203, 286)"><rect width="56" height="44" rx="8" fill="#30d0e0" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><rect x="10" y="30" width="36" height="12" rx="6" fill="#0891b2"/><text x="28" y="39" text-anchor="middle" font-size="7" fill="white" font-weight="600">Oper.</text></g>
+    <g transform="translate(267, 294)"><rect width="56" height="44" rx="8" fill="#e040e0" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><text x="28" y="24" text-anchor="middle" font-size="10" fill="#2d3436">CapsLk</text><rect x="10" y="30" width="36" height="12" rx="6" fill="#c026d3"/><text x="28" y="39" text-anchor="middle" font-size="7" fill="white" font-weight="600">Mouse</text></g>
+
+    <!-- RIGHT row 0: 6 7 8 9 0 -->
+    <g transform="translate(540, 110)"><rect width="52" height="48" rx="6" fill="#fde0cc" filter="url(#shadow)" stroke="#e06520" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">6</text></g>
+    <g transform="translate(598, 102)"><rect width="52" height="48" rx="6" fill="#fde0cc" filter="url(#shadow)" stroke="#e06520" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">7</text></g>
+    <g transform="translate(656, 96)"><rect width="52" height="48" rx="6" fill="#fde0cc" filter="url(#shadow)" stroke="#e06520" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">8</text></g>
+    <g transform="translate(714, 102)"><rect width="52" height="48" rx="6" fill="#fde0cc" filter="url(#shadow)" stroke="#e06520" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">9</text></g>
+    <g transform="translate(772, 110)"><rect width="52" height="48" rx="6" fill="#fde0cc" filter="url(#shadow)" stroke="#e06520" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">0</text></g>
+    <!-- RIGHT row 1: arrows -->
+    <g transform="translate(540, 166)"><rect width="52" height="48" rx="6" fill="#fde0cc" filter="url(#shadow)" stroke="#e06520" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="16" fill="#2d3436">←</text></g>
+    <g transform="translate(598, 158)"><rect width="52" height="48" rx="6" fill="#fde0cc" filter="url(#shadow)" stroke="#e06520" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="16" fill="#2d3436">↓</text></g>
+    <g transform="translate(656, 152)"><rect width="52" height="48" rx="6" fill="#fde0cc" filter="url(#shadow)" stroke="#e06520" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="16" fill="#2d3436">↑</text></g>
+    <g transform="translate(714, 158)"><rect width="52" height="48" rx="6" fill="#fde0cc" filter="url(#shadow)" stroke="#e06520" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="16" fill="#2d3436">→</text></g>
+    <g transform="translate(772, 166)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <!-- RIGHT row 2 (ghost) -->
+    <g transform="translate(540, 222)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <g transform="translate(598, 214)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <g transform="translate(656, 208)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <g transform="translate(714, 214)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <g transform="translate(772, 222)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <!-- RIGHT thumbs: Nav ★ revealed, Sym colored -->
+    <g transform="translate(556, 294)"><rect width="56" height="44" rx="8" fill="#f0b898" filter="url(#shadow)" stroke="#2e7d32" stroke-width="2.5"/><text x="28" y="24" text-anchor="middle" font-size="10" fill="#2d3436">Space</text><rect x="7" y="30" width="42" height="12" rx="6" fill="#e06520"/><text x="28" y="39" text-anchor="middle" font-size="7" fill="white" font-weight="700">★ Nav</text></g>
+    <g transform="translate(620, 286)"><rect width="56" height="44" rx="8" fill="#c5d68a" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><rect x="10" y="30" width="36" height="12" rx="6" fill="#5a9e10"/><text x="28" y="39" text-anchor="middle" font-size="7" fill="white" font-weight="600">Sym.</text></g>
+
+    <!-- Annotation -->
+    <text x="55" y="360" font-size="11" fill="#e06520" font-weight="600">Why this works:</text>
+    <text x="55" y="378" font-size="11" fill="#e06520">Same finger = same modifier, even here. Hold Bksp (middle finger) = Alt+Bksp = delete word.</text>
+    <text x="55" y="396" font-size="11" fill="#e06520">Arrows on right home row mirror vim's HJKL, shifted one position right for the column stagger.</text>
+    <text x="55" y="414" font-size="11" fill="#e06520">Numbers in their natural row — no relearning needed.</text>
+    <text x="55" y="446" font-size="11" fill="#636e72" font-style="italic">3 more <tspan fill="#f57c00" font-weight="600">?</tspan> to discover...</text>
+  </g>
+
+  <!-- ╭─────────────────────────────────────────────────────────────╮ -->
+  <!-- │  PANNEAU 4 — SYMBOLS                                         │ -->
+  <!-- ╰─────────────────────────────────────────────────────────────╯ -->
+  <g transform="translate(0, 1720)">
+    <rect x="15" y="10" width="890" height="450" rx="16" fill="none" stroke="#5a9e10" stroke-width="1.5"/>
+    <text x="460" y="45" text-anchor="middle" font-size="20" font-weight="700" fill="#5a9e10">Symbols — open left, close right</text>
+    <text x="460" y="68" text-anchor="middle" font-size="12" fill="#5a9e10">Second <tspan fill="#f57c00" font-weight="600">?</tspan> revealed — right outer thumb. Brackets and shifted numbers live here.</text>
+    <text x="460" y="88" text-anchor="middle" font-size="12" fill="#5a9e10">Every opening symbol is on the left hand, its closing pair is on the right. Symmetric, like code.</text>
+
+    <!-- LEFT row 0: ! @ # $ % -->
+    <g transform="translate(55, 110)"><rect width="52" height="48" rx="6" fill="#e8f0c8" filter="url(#shadow)" stroke="#5a9e10" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">!</text></g>
+    <g transform="translate(113, 102)"><rect width="52" height="48" rx="6" fill="#e8f0c8" filter="url(#shadow)" stroke="#5a9e10" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">@</text></g>
+    <g transform="translate(171, 96)"><rect width="52" height="48" rx="6" fill="#e8f0c8" filter="url(#shadow)" stroke="#5a9e10" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">#</text></g>
+    <g transform="translate(229, 102)"><rect width="52" height="48" rx="6" fill="#e8f0c8" filter="url(#shadow)" stroke="#5a9e10" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">$</text></g>
+    <g transform="translate(287, 110)"><rect width="52" height="48" rx="6" fill="#e8f0c8" filter="url(#shadow)" stroke="#5a9e10" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">%</text></g>
+    <!-- LEFT row 1: < [ { ( -->
+    <g transform="translate(55, 166)"><rect width="52" height="48" rx="6" fill="#e8f0c8" filter="url(#shadow)" stroke="#5a9e10" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="16" fill="#5a9e10">&lt;</text></g>
+    <g transform="translate(113, 158)"><rect width="52" height="48" rx="6" fill="#e8f0c8" filter="url(#shadow)" stroke="#5a9e10" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="16" fill="#5a9e10">[</text></g>
+    <g transform="translate(171, 152)"><rect width="52" height="48" rx="6" fill="#e8f0c8" filter="url(#shadow)" stroke="#5a9e10" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="16" fill="#5a9e10">{</text></g>
+    <g transform="translate(229, 158)"><rect width="52" height="48" rx="6" fill="#e8f0c8" filter="url(#shadow)" stroke="#5a9e10" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="16" fill="#5a9e10">(</text></g>
+    <g transform="translate(287, 166)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <!-- LEFT row 2 -->
+    <g transform="translate(55, 222)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <g transform="translate(113, 214)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <g transform="translate(171, 208)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <g transform="translate(229, 214)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <g transform="translate(287, 222)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <!-- LEFT thumbs: Oper(purple), Mouse(teal) -->
+    <g transform="translate(203, 286)"><rect width="56" height="44" rx="8" fill="#30d0e0" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><rect x="10" y="30" width="36" height="12" rx="6" fill="#0891b2"/><text x="28" y="39" text-anchor="middle" font-size="7" fill="white" font-weight="600">Oper.</text></g>
+    <g transform="translate(267, 294)"><rect width="56" height="44" rx="8" fill="#e040e0" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><text x="28" y="24" text-anchor="middle" font-size="10" fill="#2d3436">CapsLk</text><rect x="10" y="30" width="36" height="12" rx="6" fill="#c026d3"/><text x="28" y="39" text-anchor="middle" font-size="7" fill="white" font-weight="600">Mouse</text></g>
+
+    <!-- RIGHT row 0: ^ & * -->
+    <g transform="translate(540, 110)"><rect width="52" height="48" rx="6" fill="#e8f0c8" filter="url(#shadow)" stroke="#5a9e10" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">^</text></g>
+    <g transform="translate(598, 102)"><rect width="52" height="48" rx="6" fill="#e8f0c8" filter="url(#shadow)" stroke="#5a9e10" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">&amp;</text></g>
+    <g transform="translate(656, 96)"><rect width="52" height="48" rx="6" fill="#e8f0c8" filter="url(#shadow)" stroke="#5a9e10" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">*</text></g>
+    <g transform="translate(714, 102)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <g transform="translate(772, 110)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <!-- RIGHT row 1: ) } ] > -->
+    <g transform="translate(540, 166)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <g transform="translate(598, 158)"><rect width="52" height="48" rx="6" fill="#e8f0c8" filter="url(#shadow)" stroke="#5a9e10" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="16" fill="#5a9e10">)</text></g>
+    <g transform="translate(656, 152)"><rect width="52" height="48" rx="6" fill="#e8f0c8" filter="url(#shadow)" stroke="#5a9e10" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="16" fill="#5a9e10">}</text></g>
+    <g transform="translate(714, 158)"><rect width="52" height="48" rx="6" fill="#e8f0c8" filter="url(#shadow)" stroke="#5a9e10" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="16" fill="#5a9e10">]</text></g>
+    <g transform="translate(772, 166)"><rect width="52" height="48" rx="6" fill="#e8f0c8" filter="url(#shadow)" stroke="#5a9e10" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="16" fill="#5a9e10">&gt;</text></g>
+    <!-- RIGHT row 2: \ -->
+    <g transform="translate(540, 222)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <g transform="translate(598, 214)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <g transform="translate(656, 208)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <g transform="translate(714, 214)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <g transform="translate(772, 222)"><rect width="52" height="48" rx="6" fill="#e8f0c8" filter="url(#shadow)" stroke="#5a9e10" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#2d3436">\</text></g>
+    <!-- RIGHT thumbs: Nav (already revealed, no highlight), Sym newly revealed -->
+    <g transform="translate(556, 294)"><rect width="56" height="44" rx="8" fill="#f0b898" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><text x="28" y="24" text-anchor="middle" font-size="10" fill="#2d3436">Space</text><rect x="10" y="30" width="36" height="12" rx="6" fill="#e06520"/><text x="28" y="39" text-anchor="middle" font-size="7" fill="white" font-weight="600">Nav</text></g>
+    <g transform="translate(620, 286)"><rect width="56" height="44" rx="8" fill="#c5d68a" filter="url(#shadow)" stroke="#c62828" stroke-width="2.5"/><rect x="7" y="30" width="42" height="12" rx="6" fill="#5a9e10"/><text x="28" y="39" text-anchor="middle" font-size="7" fill="white" font-weight="700">★ Sym.</text></g>
+
+    <text x="55" y="355" font-size="11" fill="#5a9e10" font-weight="600">The logic:</text>
+    <text x="55" y="373" font-size="11" fill="#5a9e10">Left index = ( → Right index = )  |  Left middle = { → Right middle = }</text>
+    <text x="55" y="391" font-size="11" fill="#5a9e10">Same finger, opposite hand = matching pair. Typing brackets feels like closing a conversation.</text>
+    <text x="55" y="420" font-size="11" fill="#636e72" font-style="italic">2 more <tspan fill="#f57c00" font-weight="600">?</tspan> to go...</text>
+  </g>
+
+  <!-- ╭─────────────────────────────────────────────────────────────╮ -->
+  <!-- │  PANNEAU 5 — OPERATORS                                       │ -->
+  <!-- ╰─────────────────────────────────────────────────────────────╯ -->
+  <g transform="translate(0, 2210)">
+    <rect x="15" y="10" width="890" height="450" rx="16" fill="none" stroke="#0891b2" stroke-width="1.5"/>
+    <text x="460" y="45" text-anchor="middle" font-size="20" font-weight="700" fill="#0891b2">Operators — math, quotes, media</text>
+    <text x="460" y="68" text-anchor="middle" font-size="12" fill="#0891b2">Third <tspan fill="#f57c00" font-weight="600">?</tspan> revealed — left inner thumb. Math operators on left, quotes on right, media below.</text>
+    <text x="460" y="88" text-anchor="middle" font-size="12" fill="#0891b2">The keys you need when writing code (=, +, -, quotes) or controlling your music.</text>
+
+    <!-- LEFT row 0 (ghost) -->
+    <g transform="translate(55, 110)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <g transform="translate(113, 102)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <g transform="translate(171, 96)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <g transform="translate(229, 102)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <g transform="translate(287, 110)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <!-- LEFT row 1: = + _ - -->
+    <g transform="translate(55, 166)"><rect width="52" height="48" rx="6" fill="#6ee0f0" filter="url(#shadow)" stroke="#0891b2" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="16" fill="#0891b2">=</text></g>
+    <g transform="translate(113, 158)"><rect width="52" height="48" rx="6" fill="#6ee0f0" filter="url(#shadow)" stroke="#0891b2" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="16" fill="#0891b2">+</text></g>
+    <g transform="translate(171, 152)"><rect width="52" height="48" rx="6" fill="#6ee0f0" filter="url(#shadow)" stroke="#0891b2" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="16" fill="#0891b2">_</text></g>
+    <g transform="translate(229, 158)"><rect width="52" height="48" rx="6" fill="#6ee0f0" filter="url(#shadow)" stroke="#0891b2" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="16" fill="#0891b2">-</text></g>
+    <g transform="translate(287, 166)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <!-- LEFT row 2: media -->
+    <g transform="translate(55, 222)"><rect width="52" height="48" rx="6" fill="#6ee0f0" filter="url(#shadow)" stroke="#0891b2" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="10" fill="#0891b2">Prev</text></g>
+    <g transform="translate(113, 214)"><rect width="52" height="48" rx="6" fill="#6ee0f0" filter="url(#shadow)" stroke="#0891b2" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="10" fill="#0891b2">Next</text></g>
+    <g transform="translate(171, 208)"><rect width="52" height="48" rx="6" fill="#6ee0f0" filter="url(#shadow)" stroke="#0891b2" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="10" fill="#0891b2">Vol-</text></g>
+    <g transform="translate(229, 214)"><rect width="52" height="48" rx="6" fill="#6ee0f0" filter="url(#shadow)" stroke="#0891b2" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="10" fill="#0891b2">Vol+</text></g>
+    <g transform="translate(287, 222)"><rect width="52" height="48" rx="6" fill="#6ee0f0" filter="url(#shadow)" stroke="#0891b2" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="10" fill="#0891b2">Mute</text></g>
+    <!-- LEFT thumbs: Oper ★ revealed, Mouse(teal) -->
+    <g transform="translate(203, 286)"><rect width="56" height="44" rx="8" fill="#30d0e0" filter="url(#shadow)" stroke="#6a1b9a" stroke-width="2.5"/><rect x="7" y="30" width="42" height="12" rx="6" fill="#0891b2"/><text x="28" y="39" text-anchor="middle" font-size="7" fill="white" font-weight="700">★ Oper.</text></g>
+    <g transform="translate(267, 294)"><rect width="56" height="44" rx="8" fill="#e040e0" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><text x="28" y="24" text-anchor="middle" font-size="10" fill="#2d3436">CapsLk</text><rect x="10" y="30" width="36" height="12" rx="6" fill="#c026d3"/><text x="28" y="39" text-anchor="middle" font-size="7" fill="white" font-weight="600">Mouse</text></g>
+
+    <!-- RIGHT row 0 (ghost) -->
+    <g transform="translate(540, 110)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <g transform="translate(598, 102)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <g transform="translate(656, 96)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <g transform="translate(714, 102)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <g transform="translate(772, 110)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <!-- RIGHT row 1: ~ ' " ` | -->
+    <g transform="translate(540, 166)"><rect width="52" height="48" rx="6" fill="#6ee0f0" filter="url(#shadow)" stroke="#0891b2" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#0891b2">~</text></g>
+    <g transform="translate(598, 158)"><rect width="52" height="48" rx="6" fill="#6ee0f0" filter="url(#shadow)" stroke="#0891b2" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#0891b2">'</text></g>
+    <g transform="translate(656, 152)"><rect width="52" height="48" rx="6" fill="#6ee0f0" filter="url(#shadow)" stroke="#0891b2" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#0891b2">"</text></g>
+    <g transform="translate(714, 158)"><rect width="52" height="48" rx="6" fill="#6ee0f0" filter="url(#shadow)" stroke="#0891b2" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#0891b2">`</text></g>
+    <g transform="translate(772, 166)"><rect width="52" height="48" rx="6" fill="#6ee0f0" filter="url(#shadow)" stroke="#0891b2" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="14" fill="#0891b2">|</text></g>
+    <!-- RIGHT row 2 (ghost) -->
+    <g transform="translate(540, 222)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <g transform="translate(598, 214)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <g transform="translate(656, 208)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <g transform="translate(714, 214)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <g transform="translate(772, 222)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <!-- RIGHT thumbs: Nav and Sym already revealed, no highlight -->
+    <g transform="translate(556, 294)"><rect width="56" height="44" rx="8" fill="#f0b898" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><text x="28" y="24" text-anchor="middle" font-size="10" fill="#2d3436">Space</text><rect x="10" y="30" width="36" height="12" rx="6" fill="#e06520"/><text x="28" y="39" text-anchor="middle" font-size="7" fill="white" font-weight="600">Nav</text></g>
+    <g transform="translate(620, 286)"><rect width="56" height="44" rx="8" fill="#c5d68a" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><rect x="10" y="30" width="36" height="12" rx="6" fill="#5a9e10"/><text x="28" y="39" text-anchor="middle" font-size="7" fill="white" font-weight="600">Sym.</text></g>
+
+    <text x="55" y="355" font-size="11" fill="#0891b2" font-weight="600">Design:</text>
+    <text x="55" y="373" font-size="11" fill="#0891b2">Math reads left to right: =  +  _  -  |  Quotes on right where prose naturally ends.</text>
+    <text x="55" y="391" font-size="11" fill="#0891b2">Media on bottom-left — accessible without looking, thumb holds while fingers skip/adjust.</text>
+    <text x="55" y="420" font-size="11" fill="#636e72" font-style="italic">One last thumb to discover...</text>
+  </g>
+
+  <!-- ╭─────────────────────────────────────────────────────────────╮ -->
+  <!-- │  PANNEAU 6 — MOUSE                                           │ -->
+  <!-- ╰─────────────────────────────────────────────────────────────╯ -->
+  <g transform="translate(0, 2700)">
+    <rect x="15" y="10" width="890" height="450" rx="16" fill="none" stroke="#c026d3" stroke-width="1.5"/>
+    <text x="460" y="45" text-anchor="middle" font-size="20" font-weight="700" fill="#c026d3">Mouse — when the trackpad is too far</text>
+    <text x="460" y="68" text-anchor="middle" font-size="12" fill="#c026d3">Last <tspan fill="#f57c00" font-weight="600">?</tspan> revealed — left outer thumb. Full mouse control without leaving the keyboard.</text>
+    <text x="460" y="88" text-anchor="middle" font-size="12" fill="#c026d3">Left hand clicks (natural finger-to-button mapping), right hand moves and scrolls.</text>
+
+    <!-- LEFT row 0 (ghost) -->
+    <g transform="translate(55, 110)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <g transform="translate(113, 102)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <g transform="translate(171, 96)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <g transform="translate(229, 102)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <g transform="translate(287, 110)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <!-- LEFT row 1: clicks -->
+    <g transform="translate(55, 166)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <g transform="translate(113, 158)"><rect width="52" height="48" rx="6" fill="#e070e0" filter="url(#shadow)" stroke="#c026d3" stroke-width="0.5"/><text x="26" y="24" text-anchor="middle" font-size="10" fill="#c026d3">Right</text><text x="26" y="38" text-anchor="middle" font-size="9" fill="#c026d3">Click</text></g>
+    <g transform="translate(171, 152)"><rect width="52" height="48" rx="6" fill="#e070e0" filter="url(#shadow)" stroke="#c026d3" stroke-width="0.5"/><text x="26" y="24" text-anchor="middle" font-size="10" fill="#c026d3">Mid</text><text x="26" y="38" text-anchor="middle" font-size="9" fill="#c026d3">Click</text></g>
+    <g transform="translate(229, 158)"><rect width="52" height="48" rx="6" fill="#e070e0" filter="url(#shadow)" stroke="#c026d3" stroke-width="0.5"/><text x="26" y="24" text-anchor="middle" font-size="10" fill="#c026d3">Left</text><text x="26" y="38" text-anchor="middle" font-size="9" fill="#c026d3">Click</text></g>
+    <g transform="translate(287, 166)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <!-- LEFT row 2 (ghost) -->
+    <g transform="translate(55, 222)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <g transform="translate(113, 214)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <g transform="translate(171, 208)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <g transform="translate(229, 214)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <g transform="translate(287, 222)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <!-- LEFT thumbs: Oper already revealed, Mouse newly revealed -->
+    <g transform="translate(203, 286)"><rect width="56" height="44" rx="8" fill="#30d0e0" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><rect x="10" y="30" width="36" height="12" rx="6" fill="#0891b2"/><text x="28" y="39" text-anchor="middle" font-size="7" fill="white" font-weight="600">Oper.</text></g>
+    <g transform="translate(267, 294)"><rect width="56" height="44" rx="8" fill="#e040e0" filter="url(#shadow)" stroke="#00695c" stroke-width="2.5"/><text x="28" y="24" text-anchor="middle" font-size="10" fill="#2d3436">CapsLk</text><rect x="7" y="30" width="42" height="12" rx="6" fill="#c026d3"/><text x="28" y="39" text-anchor="middle" font-size="7" fill="white" font-weight="700">★ Mouse</text></g>
+
+    <!-- RIGHT row 0: M15 -->
+    <g transform="translate(540, 110)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <g transform="translate(598, 102)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <g transform="translate(656, 96)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <g transform="translate(714, 102)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <g transform="translate(772, 110)"><rect width="52" height="48" rx="6" fill="#e070e0" filter="url(#shadow)" stroke="#c026d3" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="10" fill="#c026d3">M15</text></g>
+    <!-- RIGHT row 1: cursor -->
+    <g transform="translate(540, 166)"><rect width="52" height="48" rx="6" fill="#e070e0" filter="url(#shadow)" stroke="#c026d3" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="16" fill="#c026d3">◀</text></g>
+    <g transform="translate(598, 158)"><rect width="52" height="48" rx="6" fill="#e070e0" filter="url(#shadow)" stroke="#c026d3" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="16" fill="#c026d3">▼</text></g>
+    <g transform="translate(656, 152)"><rect width="52" height="48" rx="6" fill="#e070e0" filter="url(#shadow)" stroke="#c026d3" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="16" fill="#c026d3">▲</text></g>
+    <g transform="translate(714, 158)"><rect width="52" height="48" rx="6" fill="#e070e0" filter="url(#shadow)" stroke="#c026d3" stroke-width="0.5"/><text x="26" y="30" text-anchor="middle" font-size="16" fill="#c026d3">▶</text></g>
+    <g transform="translate(772, 166)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <!-- RIGHT row 2: scroll -->
+    <g transform="translate(540, 222)"><rect width="52" height="48" rx="6" fill="#e070e0" filter="url(#shadow)" stroke="#c026d3" stroke-width="0.5" opacity="0.7"/><text x="26" y="20" text-anchor="middle" font-size="8" fill="#c026d3">Scroll</text><text x="26" y="36" text-anchor="middle" font-size="14" fill="#c026d3">◀</text></g>
+    <g transform="translate(598, 214)"><rect width="52" height="48" rx="6" fill="#e070e0" filter="url(#shadow)" stroke="#c026d3" stroke-width="0.5" opacity="0.7"/><text x="26" y="20" text-anchor="middle" font-size="8" fill="#c026d3">Scroll</text><text x="26" y="36" text-anchor="middle" font-size="14" fill="#c026d3">▼</text></g>
+    <g transform="translate(656, 208)"><rect width="52" height="48" rx="6" fill="#e070e0" filter="url(#shadow)" stroke="#c026d3" stroke-width="0.5" opacity="0.7"/><text x="26" y="20" text-anchor="middle" font-size="8" fill="#c026d3">Scroll</text><text x="26" y="36" text-anchor="middle" font-size="14" fill="#c026d3">▲</text></g>
+    <g transform="translate(714, 214)"><rect width="52" height="48" rx="6" fill="#e070e0" filter="url(#shadow)" stroke="#c026d3" stroke-width="0.5" opacity="0.7"/><text x="26" y="20" text-anchor="middle" font-size="8" fill="#c026d3">Scroll</text><text x="26" y="36" text-anchor="middle" font-size="14" fill="#c026d3">▶</text></g>
+    <g transform="translate(772, 222)"><rect width="52" height="48" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="0.5" opacity="0.4"/></g>
+    <!-- RIGHT thumbs: Nav and Sym already revealed, no highlight -->
+    <g transform="translate(556, 294)"><rect width="56" height="44" rx="8" fill="#f0b898" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><text x="28" y="24" text-anchor="middle" font-size="10" fill="#2d3436">Space</text><rect x="10" y="30" width="36" height="12" rx="6" fill="#e06520"/><text x="28" y="39" text-anchor="middle" font-size="7" fill="white" font-weight="600">Nav</text></g>
+    <g transform="translate(620, 286)"><rect width="56" height="44" rx="8" fill="#c5d68a" filter="url(#shadow)" stroke="#dee2e6" stroke-width="0.5"/><rect x="10" y="30" width="36" height="12" rx="6" fill="#5a9e10"/><text x="28" y="39" text-anchor="middle" font-size="7" fill="white" font-weight="600">Sym.</text></g>
+
+    <text x="55" y="355" font-size="11" fill="#c026d3" font-weight="600">Like a split trackball:</text>
+    <text x="55" y="373" font-size="11" fill="#c026d3">Left click = index (natural). Right click = ring. Middle = middle. Intuitive mapping.</text>
+    <text x="55" y="391" font-size="11" fill="#c026d3">Right hand = cursor on home row (same positions as Nav arrows), scroll one row below.</text>
+    <text x="55" y="420" font-size="11" fill="#c026d3" font-weight="600" font-style="italic">All 4 thumbs revealed. 34 keys, infinite possibilities.</text>
+  </g>
+</svg>

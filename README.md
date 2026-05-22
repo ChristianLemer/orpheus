@@ -1,76 +1,90 @@
 # 🎵 Orpheus
 
-_Configuration files and resources for my 40% mechanical keyboards_
+_Personal keymap configurations for 40% mechanical keyboards_
 
-## Overview
+## Design Philosophy
 
-Orpheus, named after the legendary musician who could charm all living things with his melody, is my personal repository for keyboard configurations and resources. Just as Orpheus mastered the lyre, I aim to master the minimal yet powerful 40% keyboard layout.
+Less keys, more intention. The 40% layout forces every key to earn its place — no redundancy, no wasted reach. Home-row mods keep fingers anchored, layers keep everything accessible without leaving home position.
 
-## About
+**Principles:**
+- Home-row mods (GACS) on both halves
+- Layers by function: navigation, symbols, operators, mouse
+- Muscle memory over labels — the layout rewards commitment
 
-This repository contains configuration files, firmware, layout designs, and other resources for my collection of 40% mechanical keyboards. These compact keyboards represent the perfect balance between portability and functionality, requiring thoughtful design and customization to reach their full potential.
+## Current Layout — SplitKB Halcyon Ferris
+
+My daily driver. 34 keys, split ergonomic, column-staggered.
+
+![Halcyon Ferris Annotated](keyboards/splitkb/splitkb-halcyon-ferris-annotated.svg)
+
+<details>
+<summary><strong>Technical keymap (keymap-drawer)</strong></summary>
+
+![Halcyon Ferris Keymap](keyboards/splitkb/splitkb-halcyon-ferris.svg)
+
+</details>
+
+## The Journey — from 60% to 34 keys
+
+| Period | Keyboard | Keys | What changed |
+|--------|----------|------|--------------|
+| Nov 2022 | DZ60RGB | 60% | First custom, first VIA config |
+| Feb 2023 | Keychron Q4 + Q0 | 60% + numpad | Separated the numpad — thinking in modules |
+| Apr 2023 | Keychron Q9 | 40% | The jump. 18 months of intense iteration |
+| Jan 2024 | Keychron Q9 Plus | 40% + knob | Layers stabilize |
+| Oct 2024 | Epomaker TH40 ×2 | 40% | Multi-mode (BT, 2.4GHz). Two units, daily refinement |
+| Apr 2025 | Vortex Core Plus | 40% | Third brand, same philosophy |
+| May 2025 | Windstudio Hola Mini | 40% | First Vial board |
+| May 2025 | YMDK Ferris | 34, split | First split. Tap-dance for accents |
+| Jun 2025 | ZSA Voyager | 52, split | First premium split. Validates column-stagger. Layout on [Oryx](https://configure.zsa.io/) |
+| Aug 2025 | SplitKB Halcyon Ferris | 34, split | Daily driver. The destination |
+
+Each step removed keys and added firmware intelligence. The path goes from hardware (more keys) to software (more layers).
 
 ## Keyboard Collection
 
-_My current 40% keyboards_:
-- Keychron Q9 _Black_
-- Keychron Q9 _Blue_
-- Keychron Q9 _Plus White_
-- Epomaker TH40 _Black Gold (Via)_
-- Epomaker TH40 _Purple (Via)_
-- Epomaker TH40 _Black Gold (QMK/Via)_
-- Vortex Core plus _Black/Brown_
-- SplitKB Halcyon Ferris _Split 40%_
+**34-key split (daily driver):**
+- SplitKB Halcyon Ferris — _column-stagger, Vial_
 
-_My other keyboards_:
-- Custom DZ60RGB _Gray (60%)_
-- Keychron Q4 _Blue (60%)_
+**52-key split:**
+- ZSA Voyager — _column-stagger, Oryx_
 
-## Features
+**40% (rotation):**
+- Epomaker TH40 — _Black Gold (QMK/VIA), Purple (VIA)_
+- Vortex Core Plus — _Black/Brown_
+- Keychron Q9 / Q9 Plus — _Black, Blue, White_
+- Windstudio Hola Mini — _Vial_
+- YMDK Ferris — _Vial_
 
-- **Custom Keymaps**: Optimized layers for programming and daily use
+**60% (retired):**
+- Custom DZ60RGB — _Gray_
+- Keychron Q4 — _Blue_
 
+## Repository Structure
 
-## Tools & Technologies
+```
+keyboards/
+├── splitkb/          Halcyon Ferris (Vial + firmware)
+├── epomaker/         TH40 variants (VIA + QMK)
+├── keychron/         Q0, Q4, Q9, Q9 Plus
+├── vortex/           Core Plus
+├── windstudio/       Hola Mini
+├── ymdk/             Ferris
+└── dz/               DZ60RGB
+admin/                SVG generation tooling
+local/                Nushell keyboard utilities
+```
+
+## Tools
 
 - **Firmware**: QMK, VIA, Vial
-
-## Firmware Management
-
-### SplitKB Halcyon Series Firmware
-
-To download firmware for SplitKB Halcyon keyboards (Ferris, Elora, Kyria, etc.):
-
-1. **Visit the Firmware Finder**: Navigate to [SplitKB Composer Firmware Finder](https://canary.composer.splitkb.com/#/firmware)
-
-2. **Select your configuration**:
-   - Choose your keyboard model (e.g., Halcyon Ferris)
-   - Select left module (None for base, or Cirque Trackpad/TFT Display if installed)
-   - Select right module (None for base, or Cirque Trackpad/TFT Display if installed)
-   - Choose firmware type (Vial recommended for easy configuration)
-
-3. **Download the UF2 file**: The file will be downloaded to your browser's default download location (typically OneDrive Downloads)
-
-4. **File management**: The downloaded firmware will be automatically moved from your OneDrive Downloads to `keyboards/splitkb/downloads/` in this repository
-
-5. **Firmware naming convention**:
-   - Base: `splitkb_halcyon_[model]_rev[X]_vial_hlc.uf2`
-   - With trackpad: `splitkb_halcyon_[model]_rev[X]_vial_hlc_cirque_trackpad.uf2`
-   - With display: `splitkb_halcyon_[model]_rev[X]_vial_hlc_display.uf2`
-
-6. **Flashing process**:
-   - Double-tap the reset button on your keyboard controller
-   - A drive named `RPI-RP2` will appear
-   - Drag and drop the UF2 file to this drive
-   - Both halves need to be flashed individually
+- **Visualization**: [keymap-drawer](https://github.com/caksoylar/keymap-drawer) via `admin/vil-to-svg.nu`
+- **Shell**: Nushell utilities for keyboard management
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Contributions
-
-This is a personal repository, but suggestions and discussions are welcome through issues.
+MIT — see [LICENSE.md](LICENSE.md)
 
 ---
-> "As Orpheus' music could move stones, these keyboard configurations aim to make code flow effortlessly through my fingertips."
+
+> _As Orpheus' music could move stones, these keymaps aim to make code flow effortlessly._

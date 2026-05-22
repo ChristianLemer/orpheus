@@ -1,6 +1,6 @@
 The MIT License
 
-Copyright (c) 2011 Dominic Tarr
+Copyright (c) 2022-2026 Christian Lemer
 
 Permission is hereby granted, free of charge, 
 to any person obtaining a copy of this software and 

@@ -1,0 +1,96 @@
+draw_config:
+  key_w: 60.0
+  key_h: 56.0
+  split_gap: 40.0
+  key_rx: 6.0
+  key_ry: 6.0
+  dark_mode: auto
+  n_columns: 2
+  inner_pad_w: 2.0
+  inner_pad_h: 2.0
+  outer_pad_w: 30.0
+  outer_pad_h: 40.0
+  line_spacing: 1.2
+  draw_key_sides: true
+  key_side_pars:
+    rel_x: 0
+    rel_y: 3
+    rel_w: 10
+    rel_h: 10
+    rx: 4
+    ry: 4
+  append_colon_to_layer_header: false
+  svg_extra_style: |
+    /* Layer headers */
+    text.label {
+      font-weight: 700;
+      font-size: 16px;
+    }
+    /* Home-row mods highlight */
+    rect.held {
+      fill: #e8f0fe;
+    }
+    /* Layer activators */
+    rect.activator {
+      fill: #fef3e8;
+    }
+    /* Transparent keys */
+    rect.trans {
+      fill: #f8f8f8;
+      opacity: 0.4;
+    }
+  footer_text: ''
+  shrink_wide_legends: 6
+  glyph_tap_size: 14
+  glyph_hold_size: 11
+  glyph_shifted_size: 10
+parse_config:
+  preprocess: true
+  qmk_keycode_map:
+    XXXXXXX: ''
+    'NO': ''
+    MINUS: '-'
+    MINS: '-'
+    EQUAL: '='
+    EQL: '='
+    LEFT_BRACKET: '['
+    LBRC: '['
+    RIGHT_BRACKET: ']'
+    RBRC: ']'
+    BACKSLASH: \
+    BSLS: \
+    SCOLON: ;
+    SCLN: ;
+    COMMA: ','
+    COMM: ','
+    DOT: .
+    SLASH: /
+    SLSH: /
+    GRAVE: '`'
+    GRV: '`'
+    QUOTE: "'"
+    QUOT: "'"
+    CAPSLOCK: CapsLk
+    BSPACE: Bksp
+    SPACE: Space
+    ENTER: Enter
+    ESCAPE: Esc
+    DELETE: Del
+    INSERT: Ins
+    TAB: Tab
+    MUTE: Mute
+    VOLU: Vol+
+    VOLD: Vol-
+    MNXT: Next
+    MPRV: Prev
+  modifier_fn_map:
+    left_ctrl: Ctrl
+    right_ctrl: Ctrl
+    left_shift: Shift
+    right_shift: Shift
+    left_alt: Alt
+    right_alt: AltGr
+    left_gui: Gui
+    right_gui: Gui
+    keycode_combiner: '{mods}+{key}'
+    mod_combiner: '{mod_1}+{mod_2}'
