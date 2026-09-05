@@ -24,6 +24,12 @@ My daily driver. 34 keys, split ergonomic, column-staggered.
 
 </details>
 
+## Design Rationale
+
+The reasoning behind the current layout — layer-by-layer snapshot, known weaknesses,
+combo-vs-layer theory, and the open leads — lives in
+[Halcyon Ferris — Audit](keyboards/splitkb/splitkb-halcyon-ferris-audit.md).
+
 ## The Journey — from 60% to 34 keys
 
 | Period | Keyboard | Keys | What changed |
