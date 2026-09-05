@@ -456,6 +456,7 @@ rect.trans {
 <g transform="translate(28, 192)" class="key keypos-20">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
 <rect rx="4" ry="4" x="-21" y="-24" width="42" height="42" class="key"/>
+<text x="0" y="-3" class="key tap"><tspan style="font-size: 86%">PSCREEN</tspan></text>
 </g>
 <g transform="translate(84, 157)" class="key keypos-21">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
@@ -477,22 +478,27 @@ rect.trans {
 <g transform="translate(420, 164)" class="key keypos-25">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
 <rect rx="4" ry="4" x="-21" y="-24" width="42" height="42" class="key"/>
+<text x="0" y="-3" class="key tap">HOME</text>
 </g>
 <g transform="translate(476, 156)" class="key keypos-26">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
 <rect rx="4" ry="4" x="-21" y="-24" width="42" height="42" class="key"/>
+<text x="0" y="-3" class="key tap">PGDOWN</text>
 </g>
 <g transform="translate(532, 140)" class="key keypos-27">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
 <rect rx="4" ry="4" x="-21" y="-24" width="42" height="42" class="key"/>
+<text x="0" y="-3" class="key tap">PGUP</text>
 </g>
 <g transform="translate(588, 157)" class="key keypos-28">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
 <rect rx="4" ry="4" x="-21" y="-24" width="42" height="42" class="key"/>
+<text x="0" y="-3" class="key tap">END</text>
 </g>
 <g transform="translate(644, 192)" class="key keypos-29">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
 <rect rx="4" ry="4" x="-21" y="-24" width="42" height="42" class="key"/>
+<text x="0" y="-3" class="key tap">PAUSE</text>
 </g>
 <g transform="translate(224, 238)" class="key trans keypos-30">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans side"/>
