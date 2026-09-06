@@ -278,7 +278,7 @@
     <!-- Annotation -->
     <text x="55" y="360" font-size="11" fill="#e06520" font-weight="600">Why this works:</text>
     <text x="55" y="378" font-size="11" fill="#e06520">Same finger = same modifier, even here. Hold Bksp (middle finger) = Alt+Bksp = delete word.</text>
-    <text x="55" y="396" font-size="11" fill="#e06520">Arrows on right home row mirror vim's HJKL, shifted one position right for the column stagger.</text>
+    <text x="55" y="396" font-size="11" fill="#e06520">Arrows sit on H J K L — vim&#8217;s own keys, unmoved. H is an index reach inward, as in vim.</text>
     <text x="55" y="414" font-size="11" fill="#e06520">Numbers in their natural row — no relearning needed.</text>
     <text x="55" y="446" font-size="11" fill="#636e72" font-style="italic">3 more <tspan fill="#f57c00" font-weight="600">?</tspan> to discover...</text>
   </g>

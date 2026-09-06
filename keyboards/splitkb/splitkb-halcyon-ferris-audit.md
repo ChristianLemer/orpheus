@@ -249,4 +249,15 @@ $k.combo | where {|c| ($c | any {|x| $x != "KC_NO"}) } | length
 
 ---
 
-*Document vivant. À mettre à jour après chaque modification significative du keymap.*
+## 9. Erreurs corrigées dans la documentation
+
+Consignées ici parce qu'une doc fausse coûte plus cher qu'une doc absente.
+
+| Date | Où | Ce qui était écrit | Réalité |
+|------|-----|--------------------|---------|
+| 2026-09-06 | SVG annoté, panneau Nav | « arrows … shifted one position right for the column stagger » | Les flèches sont sur `H` `J` `K` `L`, sans décalage. Vérifié dans le `.vil` : couche 1, rangée 6. |
+
+---
+
+*Document vivant. À mettre à jour après chaque modification significative du keymap —
+`nu admin/keymap-sync.nu` dit quand il a pris du retard.*
