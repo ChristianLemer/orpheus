@@ -1,0 +1,50 @@
+# Registre des claviers — ce que keymap-drawer a besoin de savoir par carte.
+#
+# Ajouter un clavier = ajouter une entrée ici, puis :
+#   nu admin/vil-to-svg.nu keyboards/<marque>/<config>.vil --force
+# relire le SVG produit, et passer verified à true.
+#
+# Champs :
+#   config        chemin du .vil relatif à la racine du repo (clé d'entrée)
+#   keyboard      nom QMK de la carte ; keymap-drawer y résout la géométrie physique.
+#                 null si aucune carte QMK ne correspond — utiliser ortho à la place.
+#   layout        macro LAYOUT de cette carte (va avec keyboard)
+#   ortho         géométrie décrite à la main, quand keyboard est null :
+#                 {split: bool, rows: int, columns: int, thumbs: int}
+#   split         la carte est-elle scindée en deux moitiés
+#   left_rows     pour un split : indices des rangées de la moitié gauche
+#   right_rows    pour un split : indices des rangées de la moitié droite
+#   reverse_left  la moitié gauche est-elle stockée de l'intérieur vers l'extérieur.
+#                 Vrai sur le Halcyon (T R E W Q), faux sur le Ferris YMDK (Q W E R T).
+#                 Se vérifie en lisant la rangée 0 de la couche 0 dans le .vil.
+#   layers        noms des couches, dans l'ordre ; celles au-delà sont ignorées
+#   columns       regroupement des colonnes pour keymap-drawer
+#   verified      un SVG a-t-il été produit et relu pour cette carte
+#
+# Les rangées non citées dans left_rows / right_rows sont écartées : sur le Halcyon
+# ce sont les encodeurs, que keymap-drawer ne sait pas placer sur ce LAYOUT.
+
+[
+  [config, keyboard, layout, ortho, split, left_rows, right_rows, reverse_left, layers, columns, verified];
+
+  ["keyboards/splitkb/splitkb-halcyon-ferris.vil",
+   "splitkb/halcyon/ferris/rev1", "LAYOUT_split_3x5_2", null, true,
+   [0 1 2 3], [5 6 7 8], true,
+   [Base Nav Symbols Operators Mouse], 5, true]
+
+  ["keyboards/ymdk/ymdk-ferris.vil",
+   null, null, {split: true, rows: 3, columns: 5, thumbs: 3}, true,
+   [0 1 2 3], [4 5 6 7], false,
+   [Base Nav Symbols Operators], 5, true]
+
+  # Cartes non scindées : géométrie encore à décrire, aucun SVG produit à ce jour.
+  ["keyboards/windstudio/hola-mini.vil",
+   null, null, null, false,
+   null, null, false,
+   [Base Fn Symbols Nav Media], 12, false]
+
+  ["keyboards/epomaker/epomaker-th40.vil",
+   null, null, null, false,
+   null, null, false,
+   [Base Fn Symbols Nav], 12, false]
+]
