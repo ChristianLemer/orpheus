@@ -72,6 +72,18 @@ for four months.
 does**. When the Halcyon keymap changes, the page needs regenerating too; nothing does it
 automatically.
 
+**Who says what.** Three documents cover this layout, and each owns one job:
+
+| Document | Owns |
+|---|---|
+| `docs/index.html` | the demonstration — what you can only grasp by operating it |
+| `README.md` | the argument — why the layout exists, what it costs, what is in the repo |
+| `…-audit.md` | the reasoning — snapshot, weaknesses, open leads, in full |
+
+The page's captions say what to *do*; they must not re-argue the case. When the same idea
+appears in two of the three, one of them is wrong — it drifted once already, nine notions
+deep, before this rule was written down.
+
 ## Commits
 
 Jujutsu (jj) workflow:

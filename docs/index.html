@@ -463,50 +463,32 @@ body {
 
   <div class="notes">
     <article class="note">
-      <h2>Same finger, same modifier</h2>
+      <h2>Flip <em>Show holds</em></h2>
       <p>
-        Flip <em>Show holds</em> and the home row stops being letters. <code>A</code> becomes
-        Shift, <code>S</code> becomes Ctrl, <code>D</code> Alt, <code>F</code> Gui — and the
-        right hand mirrors it exactly.
-      </p>
-      <p>
-        Shift is always a pinky. Ctrl is always a ring finger. Which hand you use depends only
-        on which one is free, and the hand holding the modifier is never the hand pressing the
-        letter. The mapping survives every layer: <code>Bksp</code> sits on the middle finger
-        in Nav, so holding it gives Alt+Backspace — delete word — for free.
+        Every home-row key is also a modifier. Watch the row stop being letters: the same
+        finger carries the same modifier on both hands, so which one you use depends only on
+        which hand is free.
       </p>
     </article>
 
     <article class="note">
-      <h2>The thumbs carry the design</h2>
+      <h2>Press a thumb key</h2>
       <p>
-        The thumb is the strongest digit and the least busy: it holds no letters. So it holds
-        the layers instead — one thumb, one world, no chords to memorise.
-      </p>
-      <p>
-        Two of the four also emit a character when tapped rather than held. Space is the most
-        frequent key on the board, so it takes the best thumb position and pays rent by opening
-        the most-used layer as well.
+        Each of the four opens one layer and only one — no chords. Two of them still type a
+        character when tapped instead of held, which is how <code>Space</code> earns the best
+        position on the board.
       </p>
     </article>
 
     <article class="note">
-      <h2>What it costs</h2>
+      <h2>Look for the underline</h2>
       <p>
-        Roughly three weeks of stray modifiers. The tapping term — <span class="num">175&#8239;ms</span>
-        here — is the whole trade: too short and fast typing throws modifiers, too long and
-        deliberate holds feel stuck. No value is right for everyone.
-      </p>
-      <p>
-        And combos fight home-row mods. Both start a timer on keydown, so a combo across two
-        adjacent home-row keys races itself: <code>F</code>+<code>D</code> yields Gui+D, a bare
-        d, or nothing. Combos belong on the top and bottom rows.
+        A bar under a key means it does two things, and <span class="num">175&#8239;ms</span>
+        decides which — the tapping term, the single number this whole arrangement rests on.
       </p>
     </article>
-  </div>
-
-  <p class="coda">
-    <span>Configuration, firmware and the full audit:</span>
+    <p class="coda">
+    <span>Why it is built this way, what it cost, and the configs themselves:</span>
     <a href="https://github.com/ChristianLemer/orpheus">github.com/ChristianLemer/orpheus</a>
     <span>Drawn from the live <span style="font-family:var(--f-mono)">.vil</span></span>
   </p>
