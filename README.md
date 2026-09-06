@@ -2,9 +2,19 @@
 
 _Personal keymap configurations for 40% mechanical keyboards — and an account of why they look the way they do._
 
+`34 keys` · `5 layers` · `home-row mods on both hands` · `11 boards since 2022` · `Vial · QMK · VIA`
+
+**[Try the layout in your browser →](https://christianlemer.github.io/orpheus/)**
+
+![Halcyon Ferris Annotated](keyboards/splitkb/splitkb-halcyon-ferris-annotated.svg)
+
 Three years of narrowing down, from a 60% board to 34 keys. What follows is not a
 recommendation. It is one layout explained in enough detail that you can judge it,
 steal from it, or decide it is not for you.
+
+The diagram above reveals itself in five passes: the base letters, then the modifiers
+hiding under them, then each layer as its thumb key is unlocked. The `?` marks are
+deliberate — they are the four thumb keys, and the whole design hangs off them.
 
 ## The premise
 
@@ -22,14 +32,6 @@ otherwise you have traded reaching for reaching-plus-thinking, which is worse. A
 layer must be reachable by a thumb** — the strongest, least busy digit, the one not
 carrying any letters. Both constraints do most of the design work for you.
 
-## The layout, panel by panel
-
-The diagram below reveals itself in five passes: the base letters, then the modifiers
-hiding under them, then each layer as its thumb key is unlocked. The `?` marks are
-deliberate — they are the four thumb keys, and the whole design hangs off them.
-
-![Halcyon Ferris Annotated](keyboards/splitkb/splitkb-halcyon-ferris-annotated.svg)
-
 <details>
 <summary><strong>The same keymap, drawn from the config file</strong></summary>
 
@@ -39,11 +41,6 @@ unglossed, and always in sync with the `.vil`.
 ![Halcyon Ferris Keymap](keyboards/splitkb/splitkb-halcyon-ferris.svg)
 
 </details>
-
-**[Try the layout in your browser →](https://christianlemer.github.io/orpheus/)**
-Press a thumb key to change layer, flip _Show holds_ to see every home-row modifier at once,
-and point at any key for its tap, its hold, and its raw keycode. Drawn from the same `.vil`
-this repo ships.
 
 ## How it works
 
