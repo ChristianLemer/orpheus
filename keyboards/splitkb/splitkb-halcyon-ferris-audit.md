@@ -60,14 +60,14 @@ Opérateurs maths à gauche (= + _ -), ponctuations rares à droite (~ ' " ` |),
 ### Layer 4 — MOUSE (hold LT4)
 
 ```
-—       —       —       —       —            —       —       —       —       M15
+—       —       —       —       —            —       —       —       —       —
 —       BTN2    BTN3    BTN1    —            ←       ↓       ↑       →       —
 —       —       —       —       —            WH←     WH↓     WH↑     WH→     —
 ```
 
 Clic gauche/middle/droit sur S/D/F en home row. Curseur sur la home row droite (vim). Molette sur la bottom row droite.
 
-**Point mort** : la position supérieure droite est liée à `M15`, une macro vide. La touche ne produit rien. Soit lui donner un contenu, soit libérer la position — cf. § 7, P4.
+*(La position supérieure droite pointait vers `M15`, une macro vide — touche morte. Déliée le 6 septembre 2026.)*
 
 ### Layers 5-7
 
@@ -81,7 +81,7 @@ Vides.
 | 7 | 200 | COMBO_TERM (ms) — *à confirmer* |
 | 25 | 200 | Tap Dance term default (ms) |
 
-Combos : 0/32 utilisés. Tap dance : 0/32 utilisés. Macros : 0/16 utilisées (M15 est liée mais vide). Key overrides : 0/32 utilisés.
+Combos : 0/32 utilisés. Tap dance : 0/32 utilisés. Macros : 0/16 utilisées. Key overrides : 0/32 utilisés.
 
 ---
 
@@ -186,27 +186,24 @@ Ordonné par ROI estimé, sans engagement. *(P1 de l'audit initial — nettoyer 
 ### P1 — Consolider SYM sur un seul layer
 Fusionner Layer 2 (symboles) et Layer 3 (maths + ponctuations). Tous les symboles sur Layer 2, laisser Layer 3 en MEDIA/SYS pur. ~30 min de réflexion + 1 h de saisie Vial. *(Ex-P2.)*
 
-### P2 — Trancher le sort de `M15`
-La touche supérieure droite de Layer 4 pointe vers une macro vide. Trois issues : lui donner un contenu utile, la remplacer par autre chose, ou la libérer. 5 minutes une fois la décision prise.
-
-### P3 — Caps Word
+### P2 — Caps Word
 Combo `LShift + RShift` (les deux auriculaires, geste rare = zéro faux positif). Active Caps Word — utile pour `MAX_BUFFER_SIZE`, `CARGO_TARGET_DIR`. Rust et configs Nushell y gagnent. 5 minutes.
 
-### P4 — Macros workflow
+### P3 — Macros workflow
 - `jj new -m ""` avec curseur entre les guillemets
 - `git status\n`
 - `chezmoi apply\n`
 - `nu\n`
 
-À placer sur un layer 5 dédié ou en sortie de combos secondaires — `M15` est un premier slot déjà câblé. ~1 h.
+À placer sur un layer 5 dédié ou en sortie de combos secondaires. ~1 h.
 
-### P5 — Mouse layer tuning
+### P4 — Mouse layer tuning
 Régler `MOUSEKEY_DELAY` / `MOUSEKEY_INTERVAL` / `MOUSEKEY_MAX_SPEED` / `MOUSEKEY_TIME_TO_MAX` dans la config QMK pour un curseur fluide avec accélération. Demande une recompilation du firmware (le `.vil` ne touche pas à ça).
 
-### P6 — Leader key
+### P5 — Leader key
 QMK supporte `QK_LEAD`. `Leader → g → s` = git status. `Leader → j → n` = `jj new -m ""`. Excellent pour le workflow CLI quotidien. ~1 h pour une dizaine de séquences.
 
-### P7 — Considérer Colemak-DH ou Graphite (long terme)
+### P6 — Considérer Colemak-DH ou Graphite (long terme)
 Hors périmètre. Coût : 1-2 mois de réapprentissage. Gain : distance parcourue par les doigts ÷ ~2.
 
 ---
@@ -247,7 +244,6 @@ $k.combo | where {|c| ($c | any {|x| $x != "KC_NO"}) } | length
 - `KC_KP_5` = 5 du pavé numérique
 - `KC_BTN1` = clic souris gauche
 - `KC_WH_D` = molette vers le bas
-- `M15` = macro n° 15
 - `KC_TRNS` = transparent (fall through vers la couche inférieure)
 - `KC_NO` = touche désactivée
 

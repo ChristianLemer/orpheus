@@ -917,7 +917,6 @@ rect.trans {
 <g transform="translate(644, 80)" class="key keypos-9">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
 <rect rx="4" ry="4" x="-21" y="-24" width="42" height="42" class="key"/>
-<text x="0" y="-3" class="key tap">M15</text>
 </g>
 <g transform="translate(28, 136)" class="key keypos-10">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
