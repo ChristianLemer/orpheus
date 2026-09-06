@@ -4,17 +4,15 @@ _Personal keymap configurations for 40% mechanical keyboards — and an account 
 
 `34 keys` · `5 layers` · `home-row mods on both hands` · `11 boards since 2022` · `Vial · QMK · VIA`
 
-**[Try the layout in your browser →](https://christianlemer.github.io/orpheus/)**
-
 ![Halcyon Ferris Annotated](keyboards/splitkb/splitkb-halcyon-ferris-annotated.svg)
 
 Three years of narrowing down, from a 60% board to 34 keys. What follows is not a
 recommendation. It is one layout explained in enough detail that you can judge it,
 steal from it, or decide it is not for you.
 
-The diagram above reveals itself in five passes: the base letters, then the modifiers
-hiding under them, then each layer as its thumb key is unlocked. The `?` marks are
-deliberate — they are the four thumb keys, and the whole design hangs off them.
+The diagram above reveals itself in six passes: the base letters, then the modifiers
+hiding under them, then each of the four layers as its thumb key is unlocked. The `?` marks
+are deliberate — they are the four thumb keys, and the whole design hangs off them.
 
 ## The premise
 
@@ -41,56 +39,6 @@ unglossed, and always in sync with the `.vil`.
 ![Halcyon Ferris Keymap](keyboards/splitkb/splitkb-halcyon-ferris.svg)
 
 </details>
-
-## How it works
-
-### Home-row mods: same finger, same modifier
-
-Every key on the home row does two things. Tap `A` and you get `a`. Hold it and you get
-Shift. Same for `S`/Ctrl, `D`/Alt, `F`/Gui — and mirrored on the right hand, so `;`/Shift,
-`L`/Ctrl, `K`/Alt, `J`/Gui.
-
-The mirroring is the point. **Shift is always a pinky. Ctrl is always a ring finger.** Which
-hand you use depends only on which hand is free — and the hand holding the modifier is never
-the hand pressing the letter, so `Ctrl+S` is two hands, no contortion. Once that mapping is
-in your fingers it survives every layer: hold `Bksp` on layer 1 and you get Alt+Backspace,
-delete-word, because `Bksp` sits on the middle finger and the middle finger is Alt.
-
-This is the single highest-leverage idea here, and the one that hurts most on arrival.
-
-### Four layers, four thumbs
-
-Each thumb key opens one world, and only one:
-
-| Thumb | Held | Tapped |
-|---|---|---|
-| Right inner | **Nav** — numbers, arrows, editing keys, page movement | Space |
-| Right outer | **Symbols** — the punctuation a programmer actually types | — |
-| Left outer | **Operators** — maths, rare punctuation, media | — |
-| Left inner | **Mouse** — cursor, clicks, wheel | Caps Lock |
-
-Two of the four also emit a character when tapped rather than held. Space is the most
-frequent key on the board, so it earns the most valuable thumb position and pays rent by
-also opening the most-used layer.
-
-### The details that took a while
-
-**Arrows sit on `H` `J` `K` `L` — vim's own keys, unmoved.** The mapping is free: if the
-keys are already in your fingers from an editor, they cost nothing to learn here. The one
-wrinkle is `H`, the inner column, which is an index-finger reach inward rather than a home
-position — the same reach vim asks for, on a board where the column stagger makes it
-shorter.
-
-**Page movement sits directly below the arrows.** Character-wise motion on the home row,
-page-wise motion one row down, same hand, same shape. The relationship between the two is
-spatial, so it needs no memorising.
-
-**Symbols open on the left and close on the right.** `(` `[` `{` `<` under the left hand,
-`)` `]` `}` `>` mirrored under the right. Brackets come in pairs in code; the layout makes
-them come in pairs under your hands.
-
-**Numbers stay in their usual row.** There is a good argument for a numpad cluster on a
-layer. It was not worth relearning something already automatic.
 
 ## What it costs
 
@@ -181,8 +129,9 @@ local/                Nushell keyboard utilities
 ## Tools
 
 - **Firmware**: QMK, VIA, Vial
-- **Visualization**: [keymap-drawer](https://github.com/caksoylar/keymap-drawer), driven by
-  `admin/vil-to-svg.nu` and a board registry in `admin/keyboards.nuon`
+- **Visualization**: the annotated SVG above is hand-drawn; the technical one comes from
+  [keymap-drawer](https://github.com/caksoylar/keymap-drawer) via `admin/vil-to-svg.nu`
+  and a board registry in `admin/keyboards.nuon`
 - **Maintenance**: `admin/keymap-sync.nu` redraws the diagrams and reports what changed —
   including keys left pointing at nothing
 - **Shell**: Nushell throughout

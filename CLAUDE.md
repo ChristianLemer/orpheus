@@ -64,25 +64,18 @@ date any lead that became resolved, and renumber § 7 rather than leaving a hole
 that lies about the current keymap is worse than none — it drifted once already, silently,
 for four months.
 
-## The Interactive Page
+## Who Says What
 
-`docs/index.html` is a standalone page served by GitHub Pages at
-`christianlemer.github.io/orpheus/`. Its keymap data is inlined, extracted from
-`keyboards/splitkb/splitkb-halcyon-ferris.vil` — so **it goes stale like the annotated SVG
-does**. When the Halcyon keymap changes, the page needs regenerating too; nothing does it
-automatically.
-
-**Who says what.** Three documents cover this layout, and each owns one job:
+Two documents cover the Halcyon layout, and each owns one job:
 
 | Document | Owns |
 |---|---|
-| `docs/index.html` | the demonstration — what you can only grasp by operating it |
 | `README.md` | the argument — why the layout exists, what it costs, what is in the repo |
 | `…-audit.md` | the reasoning — snapshot, weaknesses, open leads, in full |
 
-The page's captions say what to *do*; they must not re-argue the case. When the same idea
-appears in two of the three, one of them is wrong — it drifted once already, nine notions
-deep, before this rule was written down.
+The mechanics belong to the annotated SVG, which teaches them panel by panel; prose that
+re-narrates the diagram is prose to cut. When the same idea appears in two of the three,
+one of them is wrong.
 
 ## Commits
 
