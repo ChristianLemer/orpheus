@@ -6,13 +6,52 @@ _Personal keymap configurations for 40% mechanical keyboards — and an account 
 
 ![Halcyon Ferris Annotated](keyboards/splitkb/splitkb-halcyon-ferris-annotated.svg)
 
-Three years of narrowing down, from a 60% board to 34 keys. What follows is not a
-recommendation. It is one layout explained in enough detail that you can judge it,
-steal from it, or decide it is not for you.
+Three years of narrowing down, from a 60% board to 34 keys. Below, in order: what is
+here, how it got here, and why. None of it is a recommendation — it is one layout
+explained in enough detail that you can judge it, steal from it, or decide it is not
+for you.
 
 The diagram above reveals itself in six passes: the base letters, then the modifiers
 hiding under them, then each of the four layers as its thumb key is unlocked. The `?` marks
 are deliberate — they are the four thumb keys, and the whole design hangs off them.
+
+## Keyboard collection
+
+**34-key split (daily driver):**
+- SplitKB Halcyon Ferris — _column-stagger, Vial_
+
+**52-key split:**
+- ZSA Voyager — _column-stagger, Oryx_
+
+**40% (rotation):**
+- Epomaker TH40 — _Black Gold (QMK/VIA), Purple (VIA)_
+- Vortex Core Plus — _Black/Brown_
+- Keychron Q9 / Q9 Plus — _Black, Blue, White_
+- Windstudio Hola Mini — _Vial_
+- YMDK Ferris — _Vial_ · [keymap](keyboards/ymdk/ymdk-ferris.svg)
+
+**60% (retired):**
+- Custom DZ60RGB — _Gray_
+- Keychron Q4 — _Blue_
+
+## The journey — from 60% to 34 keys
+
+| Period | Keyboard | Keys | What changed |
+|--------|----------|------|--------------|
+| Nov 2022 | DZ60RGB | 60% | First custom, first VIA config |
+| Feb 2023 | Keychron Q4 + Q0 | 60% + numpad | Separated the numpad — thinking in modules |
+| Apr 2023 | Keychron Q9 | 40% | The jump. 18 months of intense iteration |
+| Jan 2024 | Keychron Q9 Plus | 40% + knob | Layers stabilize |
+| Oct 2024 | Epomaker TH40 ×2 | 40% | Multi-mode (BT, 2.4GHz). Two units, daily refinement |
+| Apr 2025 | Vortex Core Plus | 40% | Third brand, same philosophy |
+| May 2025 | Windstudio Hola Mini | 40% | First Vial board |
+| May 2025 | YMDK Ferris | 34, split | First split. Tap-dance for accents |
+| Jun 2025 | ZSA Voyager | 52, split | First premium split. Validates column-stagger. Layout on [Oryx](https://configure.zsa.io/) |
+| Aug 2025 | SplitKB Halcyon Ferris | 34, split | Daily driver. The destination |
+
+Each step removed keys and added firmware intelligence. Read the table as a slow transfer of
+complexity from hardware to software — and note that the split came late. Splitting the board
+and cutting to 34 keys are separate decisions that are easy to conflate.
 
 ## The premise
 
@@ -72,44 +111,6 @@ The full reasoning — layer-by-layer snapshot, known weaknesses, combo-vs-layer
 `F`+`D` diagnosis, and the leads still open — lives in
 [Halcyon Ferris — Audit](keyboards/splitkb/splitkb-halcyon-ferris-audit.md). It is kept
 current with the config rather than written once.
-
-## The journey — from 60% to 34 keys
-
-| Period | Keyboard | Keys | What changed |
-|--------|----------|------|--------------|
-| Nov 2022 | DZ60RGB | 60% | First custom, first VIA config |
-| Feb 2023 | Keychron Q4 + Q0 | 60% + numpad | Separated the numpad — thinking in modules |
-| Apr 2023 | Keychron Q9 | 40% | The jump. 18 months of intense iteration |
-| Jan 2024 | Keychron Q9 Plus | 40% + knob | Layers stabilize |
-| Oct 2024 | Epomaker TH40 ×2 | 40% | Multi-mode (BT, 2.4GHz). Two units, daily refinement |
-| Apr 2025 | Vortex Core Plus | 40% | Third brand, same philosophy |
-| May 2025 | Windstudio Hola Mini | 40% | First Vial board |
-| May 2025 | YMDK Ferris | 34, split | First split. Tap-dance for accents |
-| Jun 2025 | ZSA Voyager | 52, split | First premium split. Validates column-stagger. Layout on [Oryx](https://configure.zsa.io/) |
-| Aug 2025 | SplitKB Halcyon Ferris | 34, split | Daily driver. The destination |
-
-Each step removed keys and added firmware intelligence. Read the table as a slow transfer of
-complexity from hardware to software — and note that the split came late. Splitting the board
-and cutting to 34 keys are separate decisions that are easy to conflate.
-
-## Keyboard collection
-
-**34-key split (daily driver):**
-- SplitKB Halcyon Ferris — _column-stagger, Vial_
-
-**52-key split:**
-- ZSA Voyager — _column-stagger, Oryx_
-
-**40% (rotation):**
-- Epomaker TH40 — _Black Gold (QMK/VIA), Purple (VIA)_
-- Vortex Core Plus — _Black/Brown_
-- Keychron Q9 / Q9 Plus — _Black, Blue, White_
-- Windstudio Hola Mini — _Vial_
-- YMDK Ferris — _Vial_ · [keymap](keyboards/ymdk/ymdk-ferris.svg)
-
-**60% (retired):**
-- Custom DZ60RGB — _Gray_
-- Keychron Q4 — _Blue_
 
 ## Repository structure
 
