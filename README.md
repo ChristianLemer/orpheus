@@ -4,16 +4,16 @@ _Personal keymap configurations for 40% mechanical keyboards — and an account 
 
 `34 keys` · `5 layers` · `home-row mods on both hands` · `11 boards since 2022` · `Vial · QMK · VIA`
 
-![Halcyon Ferris Annotated](keyboards/splitkb/splitkb-halcyon-ferris-annotated.svg)
+![Halcyon Ferris Keymap](keyboards/splitkb/splitkb-halcyon-ferris.svg)
 
 Three years of narrowing down, from a 60% board to 34 keys. Below, in order: what is
 here, how it got here, and why. None of it is a recommendation — it is one layout
 explained in enough detail that you can judge it, steal from it, or decide it is not
 for you.
 
-The diagram above reveals itself in six passes: the base letters, then the modifiers
-hiding under them, then each of the four layers as its thumb key is unlocked. The `?` marks
-are deliberate — they are the four thumb keys, and the whole design hangs off them.
+Five layers, drawn straight from the config file. The annotated walkthrough — the same
+keymap taken apart panel by panel — is [at the bottom](#the-layout-panel-by-panel), because
+it is three screens tall and would bury everything else.
 
 ## Keyboard collection
 
@@ -69,16 +69,6 @@ otherwise you have traded reaching for reaching-plus-thinking, which is worse. A
 layer must be reachable by a thumb** — the strongest, least busy digit, the one not
 carrying any letters. Both constraints do most of the design work for you.
 
-<details>
-<summary><strong>The same keymap, drawn from the config file</strong></summary>
-
-Generated with [keymap-drawer](https://github.com/caksoylar/keymap-drawer) — dense,
-unglossed, and always in sync with the `.vil`.
-
-![Halcyon Ferris Keymap](keyboards/splitkb/splitkb-halcyon-ferris.svg)
-
-</details>
-
 ## What it costs
 
 An honest account, since the diagrams make it look free.
@@ -130,12 +120,23 @@ local/                Nushell keyboard utilities
 ## Tools
 
 - **Firmware**: QMK, VIA, Vial
-- **Visualization**: the annotated SVG above is hand-drawn; the technical one comes from
+- **Visualization**: the technical keymap comes from
   [keymap-drawer](https://github.com/caksoylar/keymap-drawer) via `admin/vil-to-svg.nu`
-  and a board registry in `admin/keyboards.nuon`
+  and a board registry in `admin/keyboards.nuon`; the annotated walkthrough is hand-drawn
 - **Maintenance**: `admin/keymap-sync.nu` redraws the diagrams and reports what changed —
   including keys left pointing at nothing
 - **Shell**: Nushell throughout
+
+## The layout, panel by panel
+
+Six passes over the same 34 keys: the base letters, the modifiers hiding under them, then
+each of the four layers as its thumb key is unlocked. The `?` marks are deliberate — they
+are the four thumb keys, and the whole design hangs off them.
+
+Hand-drawn, and the only document that explains the layout key by key rather than arguing
+about it.
+
+![Halcyon Ferris Annotated](keyboards/splitkb/splitkb-halcyon-ferris-annotated.svg)
 
 ## License
 
