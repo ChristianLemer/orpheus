@@ -64,6 +64,14 @@ date any lead that became resolved, and renumber § 7 rather than leaving a hole
 that lies about the current keymap is worse than none — it drifted once already, silently,
 for four months.
 
+## The Interactive Page
+
+`docs/index.html` is a standalone page served by GitHub Pages at
+`christianlemer.github.io/orpheus/`. Its keymap data is inlined, extracted from
+`keyboards/splitkb/splitkb-halcyon-ferris.vil` — so **it goes stale like the annotated SVG
+does**. When the Halcyon keymap changes, the page needs regenerating too; nothing does it
+automatically.
+
 ## Commits
 
 Jujutsu (jj) workflow:

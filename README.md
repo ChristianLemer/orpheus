@@ -40,6 +40,11 @@ unglossed, and always in sync with the `.vil`.
 
 </details>
 
+**[Try the layout in your browser →](https://christianlemer.github.io/orpheus/)**
+Press a thumb key to change layer, flip _Show holds_ to see every home-row modifier at once,
+and point at any key for its tap, its hold, and its raw keycode. Drawn from the same `.vil`
+this repo ships.
+
 ## How it works
 
 ### Home-row mods: same finger, same modifier
