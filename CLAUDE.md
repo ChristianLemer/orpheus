@@ -93,19 +93,26 @@ without one ever existing, which would have failed anyone who followed it litera
 already known, or that spans more than one sitting. Straight to `trunk` is for what
 is already settled: a typo, a regenerated diagram, a one-line fix.
 
-On the branch, commit freely and often, dead ends included. Then clean up before
-landing:
+On the branch, commit freely and often, dead ends included. Then land it in three
+steps, in this order:
 
 ```bash
 git switch -c <topic>
 # … commit freely, including the dead ends …
 
-git rebase -i trunk     # squash the churn into commits that each say one thing
-git switch trunk && git merge --ff-only <topic>
+git rebase trunk                              # 1. replay onto current trunk
+git reset --soft trunk && git commit          # 2. squash the churn into one commit
+git switch trunk && git merge --ff-only <topic>   # 3. land it, no merge commit
 ```
 
-Squash first, rebase second, fast-forward last: `trunk` ends up linear, with no merge
-commit and no trace of the hesitation.
+**Rebase first, squash second.** After the rebase, trunk is the branch's base, so the
+squash cannot reach past it. Squashing a branch that is still behind trunk — the same
+`git reset --soft trunk` on an un-rebased branch — silently reverts whatever trunk
+gained in the meantime, with no conflict and no warning. It happened on 19 September
+and was caught only by listing the files the commit touched.
+
+`git rebase -i trunk` does both steps at once, marking commits to squash in the editor,
+and cannot make that mistake.
 
 **What the squash must not throw away.** Commit messages in this repo carry the
 reasoning — why a tint comes from the annotated SVG, why a hold legend sat six pixels
