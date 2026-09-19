@@ -66,6 +66,16 @@ draw_config:
     .layer-Operators rect.key.held:not(.side) { stroke: #0891b2; }
     .layer-Mouse     rect.key.held:not(.side) { stroke: #c026d3; }
 
+    /* ── Libellés de couche sur les touches de pouce ──────────────────────
+       keymap-drawer pose tout libellé de maintien à y = 24, alors que la touche
+       s'arrête à y = +18 : les dix-huit tombent 6 px sous le bord — les noms
+       de couche sur les pouces comme les modificateurs de la home row. On les
+       remonte à l'intérieur. */
+    text.key.hold { transform: translateY(-8px); }
+
+    /* Et lorsqu'il tient lieu de libellé principal il déborde en largeur :
+       « Operators » fait neuf caractères pour 42 px de touche. */
+    text.key.tap.layer-activator { font-size: 10px; }
     /* ── Mode sombre ─────────────────────────────────────────────────────────
        Ce bloc doit figurer ici : keymap-drawer ajoute ce style APRÈS sa propre
        media query. Sans lui, les teintes claires l'emporteraient aussi en thème
@@ -101,6 +111,43 @@ draw_config:
   glyph_shifted_size: 10
 parse_config:
   preprocess: true
+  raw_binding_map:
+    LALT_T(KC_BSPACE): {t: "Bksp", h: Alt}
+    LALT_T(KC_D): {t: "D", h: Alt}
+    LCTL_T(KC_ESCAPE): {t: "Esc", h: Ctrl}
+    LCTL_T(KC_S): {t: "S", h: Ctrl}
+    LGUI_T(KC_ENTER): {t: "Enter", h: Gui}
+    LGUI_T(KC_F): {t: "F", h: Gui}
+    LSFT_T(KC_A): {t: "A", h: Shift}
+    LSFT_T(KC_TAB): {t: "Tab", h: Shift}
+    RALT_T(KC_K): {t: "K", h: AltGr}
+    RALT_T(KC_UP): {t: "↑", h: AltGr}
+    RCTL_T(KC_L): {t: "L", h: Ctrl}
+    RCTL_T(KC_RIGHT): {t: "→", h: Ctrl}
+    RGUI_T(KC_DOWN): {t: "↓", h: Gui}
+    RGUI_T(KC_J): {t: "J", h: Gui}
+    RSFT_T(KC_NO): {t: "", h: Shift}
+    RSFT_T(KC_SCOLON): {t: ";", h: Shift}
+    LT1(KC_SPACE): {t: Space, h: Nav}
+    LT4(KC_CAPSLOCK): {t: CapsLk, h: Mouse}
+    LSFT(KC_1): "!"
+    LSFT(KC_2): "@"
+    LSFT(KC_3): "#"
+    LSFT(KC_4): $
+    LSFT(KC_5): "%"
+    LSFT(KC_6): ^
+    LSFT(KC_7): "&"
+    LSFT(KC_8): "*"
+    LSFT(KC_9): (
+    LSFT(KC_0): )
+    LSFT(KC_LBRACKET): "{"
+    LSFT(KC_RBRACKET): "}"
+    LSFT(KC_COMMA): <
+    LSFT(KC_DOT): ">"
+    LSFT(KC_MINUS): _
+    LSFT(KC_QUOTE): '"'
+    LSFT(KC_GRAVE): "~"
+    LSFT(KC_BSLASH): "|"
   qmk_keycode_map:
     XXXXXXX: ''
     'NO': ''
@@ -138,6 +185,40 @@ parse_config:
     VOLD: Vol-
     MNXT: Next
     MPRV: Prev
+    LBRACKET: '['
+    RBRACKET: ']'
+    BSLASH: \
+    KP_PLUS: +
+    KP_MINUS: "−"
+    PSCREEN: PrtSc
+    PGDOWN: PgDn
+    PGUP: PgUp
+    PAUSE: Pause
+    HOME: Home
+    END: End
+    LEFT: "←"
+    RIGHT: "→"
+    UP: "↑"
+    DOWN: "↓"
+    BTN1: Left
+    BTN2: Right
+    BTN3: Middle
+    MS_L: "←"
+    MS_R: "→"
+    MS_U: "↑"
+    MS_D: "↓"
+    WH_L: "⇤"
+    WH_R: "⇥"
+    WH_U: "⇡"
+    WH_D: "⇣"
+    LCTL: Ctrl
+    RCTL: Ctrl
+    LSFT: Shift
+    RSFT: Shift
+    LALT: Alt
+    RALT: AltGr
+    LGUI: Gui
+    RGUI: Gui
   modifier_fn_map:
     left_ctrl: Ctrl
     right_ctrl: Ctrl
