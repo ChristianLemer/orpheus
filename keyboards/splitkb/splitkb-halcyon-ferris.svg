@@ -135,23 +135,78 @@ text.trans { fill: #7e8184; }
 path.combo { stroke: #7f7f7f; }
 
 }
-/* Layer headers */
-text.label {
-  font-weight: 700;
-  font-size: 16px;
-}
-/* Home-row mods highlight */
-rect.held {
-  fill: #e8f0fe;
-}
-/* Layer activators */
-rect.activator {
-  fill: #fef3e8;
-}
-/* Transparent keys */
-rect.trans {
-  fill: #f8f8f8;
-  opacity: 0.4;
+/* ── Couleurs par couche ─────────────────────────────────────────────────
+   Teintes reprises telles quelles du SVG annoté, pour que les deux
+   diagrammes parlent la même langue. Base reste neutre : c'est la
+   référence, elle n'a rien à signaler.
+
+   Le sélecteur porte sur rect.key sans exclure .side : keymap-drawer
+   dessine le flanc comme une copie de la face assombrie de 10 % par un
+   filtre, donc il suffit de peindre les deux pareil pour garder le relief.
+
+   Spécificité, dans l'ordre croissant :
+     rect.key.trans        (0,2,1) — à égalité avec la teinte, gagne en
+                                     venant après
+     .layer-X rect.key     (0,2,1)
+     .held:not(.side)      (0,4,1) — le cerclage passe devant tout        */
+
+.layer-Nav       rect.key { fill: #fde0cc; stroke: #e06520; }
+.layer-Symbols   rect.key { fill: #e8f0c8; stroke: #5a9e10; }
+.layer-Operators rect.key { fill: #6ee0f0; stroke: #0891b2; }
+.layer-Mouse     rect.key { fill: #e070e0; stroke: #c026d3; }
+
+/* Titres de couche */
+text.label { font-weight: 700; font-size: 16px; }
+.layer-Base      text.label { fill: #1565c0; }
+.layer-Nav       text.label { fill: #e06520; }
+.layer-Symbols   text.label { fill: #5a9e10; }
+.layer-Operators text.label { fill: #0891b2; }
+.layer-Mouse     text.label { fill: #c026d3; }
+
+/* Touches qui ouvrent une couche, vues depuis la couche de base */
+rect.key.activator { fill: #fef3e8; }
+
+/* Touches transparentes : elles héritent de la couche du dessous */
+rect.key.trans { fill: #f8f8f8; opacity: 0.4; }
+
+/* La touche que l'on tient pour atteindre cette couche. Elle ne porte
+   aucun texte, et keymap-drawer ne la marque que pour un MO() — donc sur
+   Symbols et Operators, pas sur Nav ni Mouse, qui s'ouvrent par un LT().
+   Seul le cerclage la signale : indépendant du thème et du contraste. */
+rect.key.held:not(.side) { stroke-width: 3; }
+.layer-Base      rect.key.held:not(.side) { stroke: #1565c0; }
+.layer-Nav       rect.key.held:not(.side) { stroke: #e06520; }
+.layer-Symbols   rect.key.held:not(.side) { stroke: #5a9e10; }
+.layer-Operators rect.key.held:not(.side) { stroke: #0891b2; }
+.layer-Mouse     rect.key.held:not(.side) { stroke: #c026d3; }
+
+/* ── Mode sombre ─────────────────────────────────────────────────────────
+   Ce bloc doit figurer ici : keymap-drawer ajoute ce style APRÈS sa propre
+   media query. Sans lui, les teintes claires l'emporteraient aussi en thème
+   sombre — c'est le défaut qui laissait des touches blanches illisibles.  */
+
+@media (prefers-color-scheme: dark) {
+  .layer-Nav       rect.key { fill: #5a3518; }
+  .layer-Symbols   rect.key { fill: #3a4a18; }
+  .layer-Operators rect.key { fill: #205868; }
+  .layer-Mouse     rect.key { fill: #582058; }
+
+  .layer-Base      text.label { fill: #64b5f6; }
+  .layer-Nav       text.label { fill: #f0b898; }
+  .layer-Symbols   text.label { fill: #c5d68a; }
+  .layer-Operators text.label { fill: #8cccd6; }
+  .layer-Mouse     text.label { fill: #d4a0d4; }
+  text.label { stroke: none; }
+
+  rect.key.activator { fill: #4a3a20; }
+  rect.key.trans     { fill: #2a2f35; opacity: 0.5; }
+
+  /* accents éclaircis pour rester lisibles sur fond sombre */
+  .layer-Base      rect.key.held:not(.side) { stroke: #64b5f6; }
+  .layer-Nav       rect.key.held:not(.side) { stroke: #f0b898; }
+  .layer-Symbols   rect.key.held:not(.side) { stroke: #c5d68a; }
+  .layer-Operators rect.key.held:not(.side) { stroke: #8cccd6; }
+  .layer-Mouse     rect.key.held:not(.side) { stroke: #d4a0d4; }
 }
 </style>
 <g transform="translate(30, 0)" class="layer-Base">
