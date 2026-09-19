@@ -79,11 +79,44 @@ one of them is wrong.
 
 ## Commits
 
-Jujutsu (jj) workflow:
+Plain git. There is no `.jj` here — this file claimed a Jujutsu workflow for a year
+without one ever existing, which would have failed anyone who followed it literally.
+
 - **Format**: `type(scope): emoji description`
 - **Types**: `feat`, `fix`, `docs`, `chore`
 - **Emojis**: 🎉 initial · ✨ update · 🌐 connectivity · 📄 docs · 🔧 fix
 - **Scopes**: keyboard brand or model name (`splitkb`, `halcyon-ferris`, `th40`, `repo`, etc.)
+
+## Branching
+
+**Branch as soon as the work is exploratory** — anything where the answer is not
+already known, or that spans more than one sitting. Straight to `trunk` is for what
+is already settled: a typo, a regenerated diagram, a one-line fix.
+
+On the branch, commit freely and often, dead ends included. Then clean up before
+landing:
+
+```bash
+git switch -c <topic>
+# … commit freely, including the dead ends …
+
+git rebase -i trunk     # squash the churn into commits that each say one thing
+git switch trunk && git merge --ff-only <topic>
+```
+
+Squash first, rebase second, fast-forward last: `trunk` ends up linear, with no merge
+commit and no trace of the hesitation.
+
+**What the squash must not throw away.** Commit messages in this repo carry the
+reasoning — why a tint comes from the annotated SVG, why a hold legend sat six pixels
+below its key. Collapsing five commits into "update keymap" loses the only place that
+reasoning lives. Rewrite the message to keep the substance and drop the detours; it
+takes longer than the squash itself, and that is the point.
+
+Why this is written down: between 6 and 19 September, eight of thirteen commits on
+trunk were documentation, and three of those existed only to undo the other five —
+an interactive page added then deleted, a README hero moved twice. None of that
+hesitation needed to reach trunk.
 
 ## Working Here
 
