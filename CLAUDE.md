@@ -87,6 +87,23 @@ without one ever existing, which would have failed anyone who followed it litera
 - **Emojis**: 🎉 initial · ✨ update · 🌐 connectivity · 📄 docs · 🔧 fix
 - **Scopes**: keyboard brand or model name (`splitkb`, `halcyon-ferris`, `th40`, `repo`, etc.)
 
+## The Wireless Board Lives in Two Places
+
+The wireless Halcyon Ferris is configured in
+[**zmk-config**](https://github.com/ChristianLemer/zmk-config), a separate repository,
+because ZMK's build workflow expects `config/` and `build.yaml` at the root of one.
+That separation is a constraint of the toolchain, not a decision — **treat that repo as
+a tool, not as a project of its own.**
+
+What follows from it:
+
+- **Issues all live here**, including those whose subject is entirely inside
+  `zmk-config`. One place to look. A commit there closes one from here with the full
+  reference: `Closes ChristianLemer/orpheus#3`.
+- **The reasoning lives here too** — the audit, the README, the diagrams. `zmk-config`
+  documents only what it takes not to break the build.
+- It has no tracker and no conventions of its own; these ones apply to it.
+
 ## Branching
 
 **Branch as soon as the work is exploratory** — anything where the answer is not
@@ -113,6 +130,11 @@ and was caught only by listing the files the commit touched.
 
 `git rebase -i trunk` does both steps at once, marking commits to squash in the editor,
 and cannot make that mistake.
+
+Name the branch after the work, not the tool — `wireless-board`, `keymap-colours`.
+Close the issue it answers from the squashed message, so the issue and the reasoning
+end up in the same place. Branches stay local unless someone else needs to see them,
+and are deleted once landed: trunk carries the result, the message carries the why.
 
 **What the squash must not throw away.** Commit messages in this repo carry the
 reasoning — why a tint comes from the annotated SVG, why a hold legend sat six pixels
