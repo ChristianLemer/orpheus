@@ -145,15 +145,99 @@ a base and almost nothing else:
 It puts the layers under the fingers and the digits under the thumbs — the opposite bet.
 So porting is a rebuild, not a translation, and muscle memory will not carry over.
 
-## What is not here
+## The configuration lives here
 
-- **The keymap.** No `.keymap` yet — the board runs whatever the stock build ships.
-  Porting the 34-key layout from `../splitkb-halcyon-ferris.vil` is the next job.
-- **A drawn keymap.** `admin/vil-to-svg.nu` reads `.vil` files and knows nothing about
-  ZMK. `keymap-drawer` does parse ZMK (`-z`), so the tooling can be extended rather
-  than duplicated — but it has not been.
-- **An audit.** The wired board has one (`../splitkb-halcyon-ferris-audit.md`); this
-  one has no reasoning to record yet.
+`zmk/` holds everything that compiles into the firmware, and pushing a change to it
+builds all three files through `.github/workflows/build-zmk.yml`:
+
+```
+zmk/
+├── build.yaml          the three targets — one per device
+├── config/
+│   ├── halcyon_ferris.keymap
+│   ├── halcyon_ferris.conf
+│   └── west.yml        pulls splitkb's ZMK fork and Halcyon module
+└── local/mod.nu        `use local` — build without pushing
+```
+
+This used to be a second repository, because ZMK's reusable workflow runs `west update`
+from the repository root while `west init -l <dir>` puts `.west` in the parent of `<dir>`
+— so a nested config left west searching above the workspace it had just created. The
+workflow here sets its own `working-directory` instead, which removes the constraint
+entirely. Verified by building both ways: the dongle firmware came out byte-identical.
+
+## A faithful port, deliberately
+
+Nothing was added, nothing moved. Where the Vial layout had an empty key, this one has an
+empty key. The mod-tap is set to `tap-preferred` at 175 ms, which is how QMK's mod-tap
+behaves by default and what the `.vil` had for `TAPPING_TERM` — so the feel should carry
+over rather than being something new to learn.
+
+ZMK can do better than this — `hold-trigger-key-positions` implements the opposite-hands
+rule and would end the mod-tap ambiguity that killed the `F`+`D` combo under QMK. It is
+deliberately **not** used here. Change one thing at a time: first confirm the layout you
+know works on this board, then tune.
+
+## Three keys this firmware does not have
+
+A wireless board needs keys a wired one never did, and the faithful port has none of them.
+Worth knowing before flashing:
+
+| Missing | Consequence |
+|---|---|
+| `&studio_unlock` | **ZMK Studio can never unlock this firmware.** Editing means changing the keymap here and rebuilding. |
+| `&bt BT_CLR`, `&bt BT_SEL n` | No way to switch or clear a Bluetooth profile. A pairing that goes bad needs a rebuild. |
+| `&bootloader` | Reflashing means double-tapping the physical reset button on each device. |
+
+The Operators layer's top row is empty and would hold all three without displacing
+anything. That is a decision, not an oversight — say the word.
+
+## Tuning
+
+Everything below is one number, and no value is right for everyone — change one at a time
+and type for a few days.
+
+| Setting | Now | Raise it if | Lower it if |
+|---|---|---|---|
+| `tapping-term-ms` | 175 | modifiers fire when you meant letters | deliberate holds feel sluggish |
+
+If stray modifiers survive a longer term, the next lever is `require-prior-idle-ms` — a key
+pressed within N ms of the previous one is forced to a tap, so fast typing cannot throw
+modifiers at all. After that, `hold-trigger-key-positions`: the opposite-hands rule, which
+settles a mod-tap as a tap whenever the next key is on the same hand. Neither is set today.
+
+## Building locally
+
+Pushing and waiting four minutes is fine for a rare change; it is not fine for tuning a
+tapping term by feel. Local builds turn that loop into seconds.
+
+```nushell
+omarchy pkg add cmake gperf dtc ccache   # once, needs sudo
+cd keyboards/splitkb/halcyon-ferris-wireless/zmk
+
+use local
+local                    # what this module does
+local setup              # once, 2+ GB and about a quarter of an hour
+local build              # every time after that
+local build dongle       # just the dongle — enough for a keymap change
+local build --propre     # start over
+```
+
+`west update` is resumable — if it looks stuck at `Compressing objects: 0%`, it is not;
+git sits there a long time on the larger repos before the counter moves. Interrupting and
+re-running costs nothing but does not help either.
+
+Everything lands in this repo and your home directory: a `.venv` for `west`, the Zephyr
+workspace beside it, the ARM toolchain under your own SDK path. All of it is in
+`.gitignore`.
+
+**No Docker.** The container route would mean enabling the daemon and joining the `docker`
+group, which is root-equivalent on this machine — too much to grant in order to compile a
+keyboard. The four packages above are ordinary Arch repo packages and the rest needs no
+privileges at all.
+
+`local build` reads its targets from `zmk/build.yaml`, the same file GitHub Actions uses.
+There is one list of build targets, not two.
 
 ## Sources
 

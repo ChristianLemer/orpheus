@@ -11,6 +11,7 @@ Personal keyboard configuration repository. Not a software project — no build 
 ```
 keyboards/
 ├── splitkb/          Halcyon Ferris — daily driver (Vial + firmware + SVG)
+│   └── halcyon-ferris-wireless/   the ZMK board: firmware, and zmk/ that builds it
 ├── epomaker/         TH40 variants (VIA + QMK)
 ├── keychron/         Q0, Q4, Q9, Q9 Plus (VIA)
 ├── vortex/           Core Plus (VIA)
@@ -19,6 +20,7 @@ keyboards/
 └── dz/               DZ60RGB (VIA)
 admin/                SVG generation tooling (Nushell)
 local/                Nushell keyboard utilities
+.github/workflows/    builds the ZMK firmware when keyboards/…/zmk/ changes
 ```
 
 ## File Types
@@ -87,22 +89,30 @@ without one ever existing, which would have failed anyone who followed it litera
 - **Emojis**: 🎉 initial · ✨ update · 🌐 connectivity · 📄 docs · 🔧 fix
 - **Scopes**: keyboard brand or model name (`splitkb`, `halcyon-ferris`, `th40`, `repo`, etc.)
 
-## The Wireless Board Lives in Two Places
+## The Wireless Board
 
-The wireless Halcyon Ferris is configured in
-[**zmk-config**](https://github.com/ChristianLemer/zmk-config), a separate repository,
-because ZMK's build workflow expects `config/` and `build.yaml` at the root of one.
-That separation is a constraint of the toolchain, not a decision — **treat that repo as
-a tool, not as a project of its own.**
+The wireless Halcyon Ferris runs ZMK, and its configuration lives in
+`keyboards/splitkb/halcyon-ferris-wireless/zmk/`. Pushing a change there builds all
+three firmware files through `.github/workflows/build-zmk.yml` — a hand-written
+workflow rather than ZMK's reusable one, because that one runs `west update` from the
+repository root and cannot be told otherwise.
 
-What follows from it:
+Four things break the build if got wrong:
 
-- **Issues all live here**, including those whose subject is entirely inside
-  `zmk-config`. One place to look. A commit there closes one from here with the full
-  reference: `Closes ChristianLemer/orpheus#3`.
-- **The reasoning lives here too** — the audit, the README, the diagrams. `zmk-config`
-  documents only what it takes not to break the build.
-- It has no tracker and no conventions of its own; these ones apply to it.
+**`zmk/build.yaml` is the only source of build targets.** The CI reads it, and so does
+`local build`. Never declare a target in one and not the other.
+
+**The shield line describes the hardware, not a preference.** `mod_battery_coincell
+mod_display_epaper_cityscape` says what is physically mounted on that half. Change the
+module, change the line — otherwise the firmware does not match the board.
+
+**Never commit west's directories.** `west update` drops `zephyr/`, `zmk/`, `modules/`,
+`optional/` and `zmk-halcyon-module/` inside `zmk/` — about 3 GB. They are all in
+`zmk/.gitignore`; a `git add -A` that swept them in has already happened once.
+
+**The keymap lives only on the dongle.** It is the central; the halves report key
+positions and nothing more. A keymap change needs only the dongle reflashed — the
+halves stay closed, which is why the reset-after-flash rule rarely applies.
 
 ## Branching
 

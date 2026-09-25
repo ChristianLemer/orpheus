@@ -1,0 +1,24 @@
+# Cibles de compilation — une par appareil.
+# Le dongle est le central ; les deux moitiés sont des peripherals.
+#
+# `mod_battery_coincell` et `mod_display_epaper_*` décrivent ce que porte
+# physiquement chaque moitié. Le firmware doit correspondre au matériel.
+#
+# L'e-paper impose de choisir une image de repos — le module nu n'est pas
+# sélectionnable. Trois déclinaisons : _forest, _mountain, _cityscape.
+---
+include:
+  - board: halcyon_dongle//zmk
+    shield: halcyon_ferris_dongle
+    cmake-args: -DCONFIG_ZMK_STUDIO=y
+    snippet: studio-rpc-usb-uart
+    artifact-name: halcyon_ferris_dongle
+
+  - board: halcyon_wireless//zmk
+    shield: halcyon_ferris_left mod_battery_coincell mod_display_epaper_cityscape
+    cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+    artifact-name: halcyon_ferris_left_cc_epaper
+
+  - board: halcyon_wireless//zmk
+    shield: halcyon_ferris_right mod_battery_coincell mod_display_epaper_cityscape
+    artifact-name: halcyon_ferris_right_cc_epaper
