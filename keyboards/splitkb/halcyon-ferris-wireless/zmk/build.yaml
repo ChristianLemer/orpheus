@@ -22,3 +22,23 @@ include:
   - board: halcyon_wireless//zmk
     shield: halcyon_ferris_right mod_battery_coincell mod_display_epaper_cityscape
     artifact-name: halcyon_ferris_right_cc_epaper
+
+  # Firmwares de remise à zéro. Ils effacent les appariements mémorisés, que le
+  # flash d'un firmware normal ne touche pas. Bluetooth y est désactivé, pour que
+  # les appareils ne se ré-apparient pas avant qu'on les ait tous remis à zéro.
+  #
+  # Procédure, sur les TROIS appareils : bootloader → reset → puis seulement
+  # ensuite reflasher les firmwares normaux, puis oublier le clavier côté hôte.
+
+  - board: halcyon_dongle//zmk
+    shield: settings_reset
+    artifact-name: reset_dongle
+
+  - board: halcyon_wireless//zmk
+    shield: settings_reset
+    cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+    artifact-name: reset_left
+
+  - board: halcyon_wireless//zmk
+    shield: settings_reset
+    artifact-name: reset_right
