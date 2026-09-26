@@ -11,7 +11,7 @@ Personal keyboard configuration repository. Not a software project — no build 
 ```
 keyboards/
 ├── splitkb/          Halcyon Ferris — daily driver (Vial + firmware + SVG)
-│   └── halcyon-ferris-wireless/   the ZMK board: firmware, and zmk/ that builds it
+│   └── halcyon-ferris-wireless/   the ZMK board: zmk/ builds its firmware
 ├── epomaker/         TH40 variants (VIA + QMK)
 ├── keychron/         Q0, Q4, Q9, Q9 Plus (VIA)
 ├── vortex/           Core Plus (VIA)

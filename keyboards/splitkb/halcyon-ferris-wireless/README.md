@@ -38,9 +38,7 @@ With a dongle, ZMK gives the dongle the **central** role and both halves become
 file.
 
 They come out of `.github/workflows/build-zmk.yml` on every push, or `local build` — see
-**Building locally**. **Not from `firmware/`**: that folder holds the stock files
-downloaded from the Composer on 12 September. They carry splitkb's stock keymap, so
-flashing that dongle file brings the stock layout back.
+**Building locally**.
 
 **A file named `…_central` is not the right half.** It is the *left* half built as
 central, for running without a dongle. Nothing here builds it.
