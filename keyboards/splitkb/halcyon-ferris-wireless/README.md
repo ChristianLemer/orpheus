@@ -1,10 +1,9 @@
 # Halcyon Ferris — wireless
 
-_SplitKB Halcyon Ferris on nRF52840 controllers, e-paper module on both halves,
-driven through the USB-C dongle. **ZMK, not Vial.**_
-
-Downloaded 12 September 2026 from the splitkb Composer (`splitkb.com/fw`, which
-redirects to `canary.composer.splitkb.com`).
+_Three SplitKB Halcyon Ferris on nRF52840 controllers, each driven through its own
+USB-C dongle — one with an e-paper module on both halves, two without. **ZMK, not Vial.**
+The layout is the wired board's, ported to `zmk/config/halcyon_ferris.keymap` and built
+here._
 
 ## Not the same keyboard as the wired one
 
@@ -19,28 +18,32 @@ over:
 | Changing a key | instant, in the browser | edit, build, flash |
 | Mouse keys, combos, tap dance | Vial tables | declared in the keymap |
 
-The 34-key layout itself is transferable as a *design*; the file is not. Porting it
-is its own job and has not been done — see **What is not here**.
+The 34-key layout itself is transferable as a *design*; the file is not. It was ported
+by hand, deliberately unchanged — see **A faithful port, deliberately**.
 
-## The three firmware files
+## The firmware files
 
 With a dongle, ZMK gives the dongle the **central** role and both halves become
-**peripherals**. Each device needs its own build.
+**peripherals**. Each device needs its own build, and `zmk/build.yaml` declares them all:
 
-| File | Device | Role | sha256 (first 8 bytes) |
-|---|---|---|---|
-| `halcyon_ferris_dongle.uf2` | USB-C dongle | central | `2a183267bdc186ff` |
-| `halcyon_ferris_left_cc_epaper.uf2` | left half | peripheral | `ad8e5e836e4667cd` |
-| `halcyon_ferris_right_cc_epaper.uf2` | right half | peripheral | `53c452ae3700b608` |
+| File | Device |
+|---|---|
+| `halcyon_ferris_dongle.uf2` | the dongle — any of the three, their hardware is identical |
+| `halcyon_ferris_left_cc_epaper.uf2` · `…_right_cc_epaper.uf2` | halves **with** a screen |
+| `halcyon_ferris_left_cc.uf2` · `…_right_cc.uf2` | halves **without** one |
+| `reset_dongle.uf2` · `reset_left.uf2` · `reset_right.uf2` | wipe stored pairings — see below |
 
-The `_cc_epaper` part names the module physically mounted on that half. A half with a
-different module — or none — takes a different file; the firmware must match the
-hardware, it is not a preference.
+**`cc` and `epaper` are two modules, not one name.** `cc` is the coin-cell power board,
+`epaper` the display. The firmware describes the hardware: change the module, change the
+file.
+
+They come out of `.github/workflows/build-zmk.yml` on every push, or `local build` — see
+**Building locally**. **Not from `firmware/`**: that folder holds the stock files
+downloaded from the Composer on 12 September. They carry splitkb's stock keymap, so
+flashing that dongle file brings the stock layout back.
 
 **A file named `…_central` is not the right half.** It is the *left* half built as
-central, for running without the dongle (ZMK's convention: left is central, right is
-peripheral). That configuration is not the one in use here, so its file is not kept.
-Re-downloadable from the Composer in one click if the dongle is ever dropped.
+central, for running without a dongle. Nothing here builds it.
 
 ## Flashing
 
@@ -71,19 +74,44 @@ bootloader has nothing to start and stays in mass-storage mode by itself — the
 appears on a plain connection. The double-tap only becomes necessary once a board has
 been flashed, which is to say: from the second time onwards.
 
+### When a half will not pair
+
+> **A half that lights up, blinks and never pairs — suspect the coin cell first.**
+
+A tired CR2032 runs the microcontroller fine: the LED blinks, the board enumerates over
+USB, everything looks healthy. The BLE transmit burst draws far more, and the cell
+collapses exactly there. Two dead cells in one batch passed, over three evenings, for a
+dead controller, a firmware mismatch and a pairing bug. None of those was real.
+
+The ten-second test: plug the silent half into USB. If it pairs and types on USB power,
+the controller and the firmware are fine and the fault is in the power path — cell,
+holder, power board, switch. A half that does not appear in `lsusb` at all is something
+else: a charge-only cable, or the controller not clipped down.
+
+If the power is good and pairing still fails, clear the bonds: flash the `reset_*` file
+on **all three** devices, then the normal firmwares — a normal flash never touches stored
+pairings. Whether the three must then restart together was believed, never shown: every
+pairing that worked also had the halves on USB power, which the cell explains as well.
+
 ### Telling the devices apart
 
-You cannot, from the computer. All three report the same bootloader identity:
+Every board shows the same `INFO_UF2.TXT`, but **the USB descriptor carries a serial
+number, even in the bootloader**:
 
 ```
-UF2 Bootloader 0.10.0
-Model: Halcyon
-Board-ID: nRF52840-halcyon
+lsusb -v -s <bus>:<device> | grep iSerial
 ```
 
-The only source of truth is which device you physically plugged in. And the two half
-firmwares are byte-for-byte the same size (657.9 kB), so the file name is the only
-thing that distinguishes them — not the weight, not the board.
+Once booted, the product name gives the role too:
+
+| `lsusb` shows | Device |
+|---|---|
+| `Halcyon Ferris`, exposes a keyboard | dongle |
+| `Halcyon Ferris`, no interface | left half |
+| *empty product name*, no interface | right half |
+
+The empty name is splitkb's `Kconfig.defconfig`: it sets `ZMK_KEYBOARD_NAME` for the left
+and dongle shields, and has no block for the right.
 
 ### What the USB IDs look like
 
@@ -93,6 +121,7 @@ Useful for telling at a glance what state a device is in:
 |---|---|
 | `239a:e34b` Adafruit Halcyon | in bootloader, waiting for a `.uf2` |
 | `1d50:615e` Halcyon Ferris | running ZMK — flashed and booted |
+| `1d50:615e` SETTINGS RESET | running a `reset_*` file — pairings wiped |
 | `8d1d:e050` splitkb.com Halcyon Ferris rev1 | the **wired** board, a different keyboard |
 
 A flashed device also appears as `usb-ZMK_Project_Halcyon_Ferris_…` under
@@ -217,6 +246,10 @@ local build              # every time after that
 local build dongle       # just the dongle — enough for a keymap change
 local build --propre     # start over
 ```
+
+**As written, neither command completes on its own.** `local setup` misses four steps
+(#2) and `local build` needs three variables exported first (#3); both issues carry the
+workaround until the module is fixed.
 
 `west update` is resumable — if it looks stuck at `Compressing objects: 0%`, it is not;
 git sits there a long time on the larger repos before the counter moves. Interrupting and
