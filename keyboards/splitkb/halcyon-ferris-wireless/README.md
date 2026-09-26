@@ -108,26 +108,21 @@ Two things that look like faults and are not:
 - **Keymap-only changes need only the central reflashed** — here, just the dongle. The
   halves stay untouched, and stay closed.
 
-## Unlocking ZMK Studio
+## ZMK Studio
 
-Studio connects but refuses to edit until the keyboard is unlocked, and the unlock is a
-key in the keymap — not a setting in the app. On the stock splitkb build:
+Studio talks to the dongle over its USB cable (`/dev/ttyACM*`). Its lock is compiled out —
+`CONFIG_ZMK_STUDIO_LOCKING=n` in `zmk/config/halcyon_ferris.conf` — because the ported
+keymap has no `&studio_unlock` key, and without one Studio found the board and stayed on
+*Unlock to continue* for good. ZMK only `imply`s the lock, so the `=n` holds.
 
-> **Hold `Space` (right inner thumb) and press `T`.**
+**Studio's labels drop implicit modifiers.** A binding like `&kp LS(N1)` — shifted 1 — is
+drawn as `1`, and `[` and `{` both come out as `{`. The firmware sends the right thing; only
+the picture is wrong. Editing such a key in Studio without ticking Shift again *would*
+change it for real. Studio 0.3.1 is the latest release, so there is no update to wait for.
 
-`&studio_unlock` lives on layer 7, *Always accessible*, reached by `&lt 7 SPACE`. On that
-layer the position `T` occupies on the base layer carries the unlock:
-
-```
-layer 7   | BT+ |     |  :  | ESC | STDIO |   …
-base      |  Q  |  W  |  E  |  R  |   T   |   …
-```
-
-The keyboard relocks after a period of inactivity in Studio, or on disconnect.
-
-Source: [`splitkb/zmk-halcyon-module`](https://github.com/splitkb/zmk-halcyon-module/blob/main/boards/shields/halcyon_ferris/halcyon_ferris.keymap)
-— read 12 September 2026. Not copied here: it is upstream's to change, and a copy would
-drift.
+For a faithful picture, keymap-drawer reads the `.keymap` itself: `keymap parse -z` yields
+44 positions — the 34 keys, then the 10 module slots of row `RC(4,x)` to drop — drawn on
+`splitkb/halcyon/ferris/rev1`, `LAYOUT_split_3x5_2`.
 
 ## The stock keymap is not this repo's layout
 
@@ -185,11 +180,11 @@ Worth knowing before flashing:
 
 | Missing | Consequence |
 |---|---|
-| `&studio_unlock` | **ZMK Studio can never unlock this firmware.** Editing means changing the keymap here and rebuilding. |
+| `&studio_unlock` | Not needed: Studio's lock is compiled out — see **ZMK Studio** above. |
 | `&bt BT_CLR`, `&bt BT_SEL n` | No way to switch or clear a Bluetooth profile. A pairing that goes bad needs a rebuild. |
 | `&bootloader` | Reflashing means double-tapping the physical reset button on each device. |
 
-The Operators layer's top row is empty and would hold all three without displacing
+The Operators layer's top row is empty and would hold the other two without displacing
 anything. That is a decision, not an oversight — say the word.
 
 ## Tuning
