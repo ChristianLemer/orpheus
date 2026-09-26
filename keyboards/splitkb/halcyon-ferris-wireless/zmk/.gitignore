@@ -1,7 +1,6 @@
 # Espace de travail west, produit par `local setup` — jamais versionné.
 # west dépose ses dépôts à la racine : tout ce qui n'est pas à nous sort d'ici.
 /.west/
-/.venv/
 /build/
 /zephyr/
 /zmk/

@@ -236,7 +236,7 @@ Pushing and waiting four minutes is fine for a rare change; it is not fine for t
 tapping term by feel. Local builds turn that loop into seconds.
 
 ```nushell
-omarchy pkg add cmake gperf dtc ccache   # once, needs sudo
+omarchy pkg add podman   # once, needs sudo
 cd keyboards/splitkb/halcyon-ferris-wireless/zmk
 
 use local
@@ -247,22 +247,21 @@ local build dongle       # just the dongle — enough for a keymap change
 local build --propre     # start over
 ```
 
-**As written, neither command completes on its own.** `local setup` misses four steps
-(#2) and `local build` needs three variables exported first (#3); both issues carry the
-workaround until the module is fixed.
+**The build runs in the CI's own image**, `zmkfirmware/zmk-build-arm:stable`. Toolchain,
+Python and SDK come with it, so a local build and a GitHub build are the same build.
+Nothing is installed on the machine beyond Podman.
+
+**Podman, not Docker.** Docker needs its daemon and the `docker` group, which is
+root-equivalent. Podman runs without either: the container's root is you, and the files it
+writes are yours.
 
 `west update` is resumable — if it looks stuck at `Compressing objects: 0%`, it is not;
-git sits there a long time on the larger repos before the counter moves. Interrupting and
-re-running costs nothing but does not help either.
+git sits there a long time on the larger repos before the counter moves.
 
-Everything lands in this repo and your home directory: a `.venv` for `west`, the Zephyr
-workspace beside it, the ARM toolchain under your own SDK path. All of it is in
-`.gitignore`.
-
-**No Docker.** The container route would mean enabling the daemon and joining the `docker`
-group, which is root-equivalent on this machine — too much to grant in order to compile a
-keyboard. The four packages above are ordinary Arch repo packages and the rest needs no
-privileges at all.
+The Zephyr workspace lives outside the repo, in `~/.cache/orpheus/zmk-west`, shared by
+every worktree: each one mounts its own `config/` over it and gets its own `build/`, so a
+new worktree builds without fetching Zephyr again. Only `build/` lands in the repo, and it
+is in `.gitignore`.
 
 `local build` reads its targets from `zmk/build.yaml`, the same file GitHub Actions uses.
 There is one list of build targets, not two.
