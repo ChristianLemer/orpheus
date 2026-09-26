@@ -1,6 +1,6 @@
-# CLAUDE.md
+# AGENTS.md
 
-Agent instructions for [Claude Code](https://claude.ai/code) when working in this repository.
+Instructions for any coding agent working in this repository.
 
 ## Overview
 
@@ -92,8 +92,8 @@ without one ever existing, which would have failed anyone who followed it litera
 ## The Wireless Board
 
 The wireless Halcyon Ferris runs ZMK, and its configuration lives in
-`keyboards/splitkb/halcyon-ferris-wireless/zmk/`. Pushing a change there builds all
-three firmware files through `.github/workflows/build-zmk.yml` — a hand-written
+`keyboards/splitkb/halcyon-ferris-wireless/zmk/`. Pushing a change there builds every
+target through `.github/workflows/build-zmk.yml` — a hand-written
 workflow rather than ZMK's reusable one, because that one runs `west update` from the
 repository root and cannot be told otherwise.
 
@@ -106,9 +106,11 @@ Four things break the build if got wrong:
 mod_display_epaper_cityscape` says what is physically mounted on that half. Change the
 module, change the line — otherwise the firmware does not match the board.
 
-**Never commit west's directories.** `west update` drops `zephyr/`, `zmk/`, `modules/`,
-`optional/` and `zmk-halcyon-module/` inside `zmk/` — about 3 GB. They are all in
-`zmk/.gitignore`; a `git add -A` that swept them in has already happened once.
+**Never commit west's directories.** `local` keeps the west workspace in
+`~/.cache/orpheus/zmk-west`, but a `west update` run by hand inside `zmk/` drops
+`zephyr/`, `zmk/`, `modules/`, `optional/` and `zmk-halcyon-module/` there — about 3 GB.
+They are all in `zmk/.gitignore`; a `git add -A` that swept them in has already happened
+once.
 
 **The keymap lives only on the dongle.** It is the central; the halves report key
 positions and nothing more. A keymap change needs only the dongle reflashed — the
@@ -116,35 +118,41 @@ halves stay closed, which is why the reset-after-flash rule rarely applies.
 
 ## Branching
 
-**Branch as soon as the work is exploratory** — anything where the answer is not
-already known, or that spans more than one sitting. Straight to `trunk` is for what
-is already settled: a typo, a regenerated diagram, a one-line fix.
+**The principal checkout stays on `main`, clean.** Work on a branch happens in an Orca
+worktree, never by switching the principal checkout — another session opening the repo
+would land on someone else's branch. The west workspace is shared across worktrees, so a
+new one builds firmware without fetching Zephyr again.
 
-On the branch, commit freely and often, dead ends included. Then land it in three
+**Open a worktree as soon as the work is exploratory** — anything where the answer is not
+already known, or that spans more than one sitting. Straight to `main` is for what is
+already settled: a typo, a regenerated diagram, a one-line fix.
+
+In the worktree, commit freely and often, dead ends included. Then land it in three
 steps, in this order:
 
 ```bash
-git switch -c <topic>
-# … commit freely, including the dead ends …
+orca worktree create --name <topic> --no-parent
+# … in the worktree, commit freely, including the dead ends …
 
-git rebase trunk                              # 1. replay onto current trunk
-git reset --soft trunk && git commit          # 2. squash the churn into one commit
-git switch trunk && git merge --ff-only <topic>   # 3. land it, no merge commit
+git rebase main                               # 1. replay onto current main
+git reset --soft main && git commit           # 2. squash the churn into one commit
+git -C <principal checkout> merge --ff-only <branch>   # 3. land it, no merge commit
 ```
 
-**Rebase first, squash second.** After the rebase, trunk is the branch's base, so the
-squash cannot reach past it. Squashing a branch that is still behind trunk — the same
-`git reset --soft trunk` on an un-rebased branch — silently reverts whatever trunk
+**Rebase first, squash second.** After the rebase, main is the branch's base, so the
+squash cannot reach past it. Squashing a branch that is still behind main — the same
+`git reset --soft main` on an un-rebased branch — silently reverts whatever main
 gained in the meantime, with no conflict and no warning. It happened on 19 September
 and was caught only by listing the files the commit touched.
 
-`git rebase -i trunk` does both steps at once, marking commits to squash in the editor,
+`git rebase -i main` does both steps at once, marking commits to squash in the editor,
 and cannot make that mistake.
 
 Name the branch after the work, not the tool — `wireless-board`, `keymap-colours`.
 Close the issue it answers from the squashed message, so the issue and the reasoning
-end up in the same place. Branches stay local unless someone else needs to see them,
-and are deleted once landed: trunk carries the result, the message carries the why.
+end up in the same place. Branches stay local unless someone else needs to see them.
+Once landed, remove the worktree with `orca worktree rm`, which deletes the branch with it:
+main carries the result, the message carries the why.
 
 **What the squash must not throw away.** Commit messages in this repo carry the
 reasoning — why a tint comes from the annotated SVG, why a hold legend sat six pixels
@@ -153,9 +161,9 @@ reasoning lives. Rewrite the message to keep the substance and drop the detours;
 takes longer than the squash itself, and that is the point.
 
 Why this is written down: between 6 and 19 September, eight of thirteen commits on
-trunk were documentation, and three of those existed only to undo the other five —
+the default branch were documentation, and three of those existed only to undo the other five —
 an interactive page added then deleted, a README hero moved twice. None of that
-hesitation needed to reach trunk.
+hesitation needed to land.
 
 ## Working Here
 
