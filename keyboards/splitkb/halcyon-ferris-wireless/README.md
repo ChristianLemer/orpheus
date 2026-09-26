@@ -114,7 +114,7 @@ halves it belongs to — pairing does. Keep the pairs written down, by serial:
 |---|---|---|---|
 | `D6874D6B532F6DBF` | `A887933FC138C4FC` | `96F1F38166197228` | `_cc` |
 | `B9A49098438BCF64` | `E8C9839E716655D4` | `51375EAF3E6F9754` | `_cc` |
-| `E114FA75956B0A7E` | not yet read | not yet read | `_cc_epaper` |
+| `E114FA75956B0A7E` | `519D6B232CF5036A` | `507428CBAD7B30A1` | `_cc_epaper` |
 
 A new pair means a new row, the day it is paired.
 
