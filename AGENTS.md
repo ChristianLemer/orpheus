@@ -138,7 +138,7 @@ orca worktree create --name <topic> --no-parent
 # … in the worktree, commit freely, including the dead ends …
 
 git rebase main                               # 1. replay onto current main
-git reset --soft main && git commit           # 2. squash the churn into one commit
+git reset --soft main && git commit           # 2. squash the churn (see below)
 git -C <principal checkout> merge --ff-only <branch>   # 3. land it, no merge commit
 ```
 
@@ -151,9 +151,15 @@ and was caught only by listing the files the commit touched.
 `git rebase -i main` does both steps at once, marking commits to squash in the editor,
 and cannot make that mistake.
 
+**Squash only what is not worth keeping apart.** One commit is for a branch that is all
+churn around a single change. A branch whose commits are each a step — the scripts, then
+the docs they change, then the audit — lands as those steps, with the dead ends and
+corrections folded into the step they fix (`fixup` in `git rebase -i main`). The test:
+would someone reading `git log` later want this commit on its own?
+
 Name the branch after the work, not the tool — `wireless-board`, `keymap-colours`.
-Close the issue it answers from the squashed message, so the issue and the reasoning
-end up in the same place. Branches stay local unless someone else needs to see them.
+Close the issue it answers from the landed message — the last commit, when there are
+several — so the issue and the reasoning end up in the same place. Branches stay local unless someone else needs to see them.
 Once landed, remove the worktree with `orca worktree rm`, which deletes the branch with it:
 main carries the result, the message carries the why.
 
