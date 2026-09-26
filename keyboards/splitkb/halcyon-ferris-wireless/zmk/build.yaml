@@ -6,6 +6,13 @@
 #
 # L'e-paper impose de choisir une image de repos — le module nu n'est pas
 # sélectionnable. Trois déclinaisons : _forest, _mountain, _cityscape.
+# Une moitié sans écran n'a pas ce problème : on omet le module, rien d'autre.
+#
+# Deux Ferris cohabitent ici. Ils se distinguent par ce qu'ils portent, jamais
+# par un numéro d'ordre : `_cc_epaper` pour celui à écrans, `_cc` pour celui
+# sans. Le dongle n'apparaît qu'une fois — son matériel est le même des deux
+# côtés, donc son firmware aussi ; c'est l'appairage, pas la compilation, qui
+# rattache un dongle à sa paire.
 ---
 include:
   - board: halcyon_dongle//zmk
@@ -22,6 +29,15 @@ include:
   - board: halcyon_wireless//zmk
     shield: halcyon_ferris_right mod_battery_coincell mod_display_epaper_cityscape
     artifact-name: halcyon_ferris_right_cc_epaper
+
+  - board: halcyon_wireless//zmk
+    shield: halcyon_ferris_left mod_battery_coincell
+    cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+    artifact-name: halcyon_ferris_left_cc
+
+  - board: halcyon_wireless//zmk
+    shield: halcyon_ferris_right mod_battery_coincell
+    artifact-name: halcyon_ferris_right_cc
 
   # Firmwares de remise à zéro. Ils effacent les appariements mémorisés, que le
   # flash d'un firmware normal ne touche pas. Bluetooth y est désactivé, pour que
