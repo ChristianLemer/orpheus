@@ -111,6 +111,19 @@ Once booted, the product name gives the role too:
 The empty name is splitkb's `Kconfig.defconfig`: it sets `ZMK_KEYBOARD_NAME` for the left
 and dongle shields, and has no block for the right.
 
+### Which dongle goes with which halves
+
+Every dongle runs the same firmware, so nothing in a `.uf2` or on the case says which
+halves it belongs to — pairing does. Keep the pairs written down, by serial:
+
+| Dongle | Left | Right | Halves |
+|---|---|---|---|
+| `D6874D6B532F6DBF` | `A887933FC138C4FC` | `96F1F38166197228` | `_cc` |
+| `B9A49098438BCF64` | `E8C9839E716655D4` | `51375EAF3E6F9754` | `_cc` |
+| `E114FA75956B0A7E` | not yet read | not yet read | `_cc_epaper` |
+
+A new pair means a new row, the day it is paired.
+
 ### What the USB IDs look like
 
 Useful for telling at a glance what state a device is in:
