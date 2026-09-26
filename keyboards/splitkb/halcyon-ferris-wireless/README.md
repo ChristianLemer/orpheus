@@ -1,25 +1,19 @@
 # Halcyon Ferris — wireless
 
 _Three SplitKB Halcyon Ferris on nRF52840 controllers, each driven through its own
-USB-C dongle — one with an e-paper module on both halves, two without. **ZMK, not Vial.**
-The layout is the wired board's, ported to `zmk/config/halcyon_ferris.keymap` and built
-here._
+USB-C dongle — one with an e-paper module on both halves, two without. **ZMK.**
+`zmk/config/halcyon_ferris.keymap` is the layout's source of truth: the diagrams and the
+audit in `../` are drawn and written from it._
 
-## Not the same keyboard as the wired one
+## Changing the layout
 
-The wired Halcyon Ferris in `../` runs QMK with Vial: its layout is a `.vil` file,
-edited live at vial.rocks, no compiling. This board runs **ZMK**. Nothing carries
-over:
+1. Edit `zmk/config/halcyon_ferris.keymap`
+2. `local build dongle`, then flash the dongle — the halves stay closed
+3. `nu admin/keymap-sync.nu` from the repo root — it redraws the diagram and says what
+   else lags behind
 
-| | Wired (`../`) | Wireless (here) |
-|---|---|---|
-| Firmware | QMK + Vial | ZMK |
-| Layout source | `.vil`, edited live | `.keymap`, compiled |
-| Changing a key | instant, in the browser | edit, build, flash |
-| Mouse keys, combos, tap dance | Vial tables | declared in the keymap |
-
-The 34-key layout itself is transferable as a *design*; the file is not. It was ported
-by hand, deliberately unchanged — see **A faithful port, deliberately**.
+The `.vil` in `../` is the layout as it was under Vial, frozen for anyone with a wired
+board. It does not follow this file.
 
 ## The firmware files
 
@@ -133,7 +127,6 @@ Useful for telling at a glance what state a device is in:
 | `239a:e34b` Adafruit Halcyon | in bootloader, waiting for a `.uf2` |
 | `1d50:615e` Halcyon Ferris | running ZMK — flashed and booted |
 | `1d50:615e` SETTINGS RESET | running a `reset_*` file — pairings wiped |
-| `8d1d:e050` splitkb.com Halcyon Ferris rev1 | the **wired** board, a different keyboard |
 
 A flashed device also appears as `usb-ZMK_Project_Halcyon_Ferris_…` under
 `/dev/input/by-id/`, and exposes a `/dev/ttyACM*` endpoint — that serial port is how
@@ -160,16 +153,17 @@ drawn as `1`, and `[` and `{` both come out as `{`. The firmware sends the right
 the picture is wrong. Editing such a key in Studio without ticking Shift again *would*
 change it for real. Studio 0.3.1 is the latest release, so there is no update to wait for.
 
-For a faithful picture, keymap-drawer reads the `.keymap` itself: `keymap parse -z` yields
-44 positions — the 34 keys, then the 10 module slots of row `RC(4,x)` to drop — drawn on
-`splitkb/halcyon/ferris/rev1`, `LAYOUT_split_3x5_2`.
+For a faithful picture, `admin/keymap-to-svg.nu` draws from the `.keymap` itself.
+
+**Studio writes nothing to this repository.** A key changed there lives on the dongle
+only, and the next flash of the `.keymap` erases it. Try things in Studio; keep them by
+editing the `.keymap`.
 
 ## The stock keymap is not this repo's layout
 
-Worth knowing before porting anything. The stock ZMK build and the wired Vial layout share
-a base and almost nothing else:
+The stock ZMK build and this layout share a base and almost nothing else:
 
-| | Wired (`../`, Vial) | Stock ZMK |
+| | This repo | Stock ZMK |
 |---|---|---|
 | Base | QWERTY | QWERTY |
 | Home-row mods | ⇧⌃⌥⌘ mirrored, both hands | **Shift on the pinkies only** |
@@ -224,8 +218,7 @@ Worth knowing before flashing:
 | `&bt BT_CLR`, `&bt BT_SEL n` | No way to switch or clear a Bluetooth profile. A pairing that goes bad needs a rebuild. |
 | `&bootloader` | Reflashing means double-tapping the physical reset button on each device. |
 
-The Operators layer's top row is empty and would hold the other two without displacing
-anything. That is a decision, not an oversight — say the word.
+Whether to add them is an open lead in the audit.
 
 ## Tuning
 

@@ -2,11 +2,12 @@
 
 _Personal keymap configurations for 40% mechanical keyboards — and an account of why they look the way they do._
 
-`34 keys` · `5 layers` · `home-row mods on both hands` · `11 boards since 2022` · `Vial · QMK · VIA`
+`34 keys` · `5 layers` · `home-row mods on both hands` · `12 boards since 2022` · `ZMK · QMK · Vial · VIA`
 
 ![Halcyon Ferris Keymap](keyboards/splitkb/splitkb-halcyon-ferris.svg)
 
-Three years of narrowing down, from a 60% board to 34 keys. Below, in order: what is
+Three years of narrowing down, from a 60% board to 34 keys — and last, off the cable.
+Below, in order: what is
 here, how it got here, and why. None of it is a recommendation — it is one layout
 explained in enough detail that you can judge it, steal from it, or decide it is not
 for you.
@@ -18,7 +19,12 @@ it is three screens tall and would bury everything else.
 ## Keyboard collection
 
 **34-key split (daily driver):**
-- SplitKB Halcyon Ferris — _column-stagger, Vial_
+- SplitKB Halcyon Ferris ×3 — _column-stagger, wireless, ZMK_ ·
+  [wireless board](keyboards/splitkb/halcyon-ferris-wireless/README.md)
+  - two ran wired under Vial from August 2025; a third, bought wireless with e-paper
+    screens, won them over, and they followed — new controllers, same keyboards. The
+    wired [`.vil`](keyboards/splitkb/splitkb-halcyon-ferris.vil) is kept, frozen, for
+    anyone with a wired one
 
 **52-key split:**
 - ZSA Voyager — _column-stagger, Oryx_
@@ -47,11 +53,19 @@ it is three screens tall and would bury everything else.
 | May 2025 | Windstudio Hola Mini | 40% | First Vial board |
 | May 2025 | YMDK Ferris | 34, split | First split. Tap-dance for accents |
 | Jun 2025 | ZSA Voyager | 52, split | First premium split. Validates column-stagger. Layout on [Oryx](https://configure.zsa.io/) |
-| Aug 2025 | SplitKB Halcyon Ferris | 34, split | Daily driver. The destination |
+| Aug 2025 | SplitKB Halcyon Ferris ×2, wired | 34, split | Daily driver, under Vial. The destination |
+| Sep 2026 | SplitKB Halcyon Ferris, wireless | 34, split | E-paper screens, no cable. Vial → ZMK, same layout key for key |
+| Sep 2026 | SplitKB Halcyon Ferris ×2, converted | 34, split | The wired pair follows: controllers swapped, keyboards kept |
 
 Each step removed keys and added firmware intelligence. Read the table as a slow transfer of
 complexity from hardware to software — and note that the split came late. Splitting the board
 and cutting to 34 keys are separate decisions that are easy to conflate.
+
+The last step removed no key and replaced no keyboard — only the controllers, and with
+them the cable. Not for travel: the boards stay on the desk, where two halves with nothing
+running between them are simply nicer to look at and to work beside. It cost the live
+editing Vial allowed. The layout is now a file that is compiled and flashed, which is also
+what makes it the single source the diagrams are drawn from.
 
 ## The premise
 
@@ -106,7 +120,7 @@ current with the config rather than written once.
 
 ```
 keyboards/
-├── splitkb/          Halcyon Ferris (Vial + firmware + SVGs + audit)
+├── splitkb/          Halcyon Ferris (ZMK config + SVGs + audit)
 ├── epomaker/         TH40 variants (VIA + QMK)
 ├── keychron/         Q0, Q4, Q9, Q9 Plus
 ├── vortex/           Core Plus
@@ -119,9 +133,9 @@ local/                Nushell keyboard utilities
 
 ## Tools
 
-- **Firmware**: QMK, VIA, Vial
+- **Firmware**: ZMK, QMK, VIA, Vial
 - **Visualization**: the technical keymap comes from
-  [keymap-drawer](https://github.com/caksoylar/keymap-drawer) via `admin/vil-to-svg.nu`
+  [keymap-drawer](https://github.com/caksoylar/keymap-drawer) via `admin/keymap-to-svg.nu`
   and a board registry in `admin/keyboards.nuon`; the annotated walkthrough is hand-drawn
 - **Maintenance**: `admin/keymap-sync.nu` redraws the diagrams and reports what changed —
   including keys left pointing at nothing

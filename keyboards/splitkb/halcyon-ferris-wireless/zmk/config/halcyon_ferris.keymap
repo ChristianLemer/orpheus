@@ -1,9 +1,10 @@
 /*
- * Halcyon Ferris — portage fidèle de la disposition Vial 34 touches.
+ * Halcyon Ferris — la disposition 34 touches. Ce fichier en est la source :
+ * le SVG et l'audit de keyboards/splitkb/ en découlent.
  * Intention et raisonnement : ChristianLemer/orpheus, keyboards/splitkb/
  *
- * Aucune touche ajoutée, aucune touche déplacée. Ce qui était vide sous Vial
- * reste vide ici.
+ * Portée de Vial touche pour touche en septembre 2026. Ce qui y était vide est
+ * resté vide.
  *
  * SPDX-License-Identifier: MIT
  */
@@ -24,7 +25,7 @@
         // Mod-tap réglé pour reproduire le comportement QMK d'origine :
         // seul l'écoulement du délai décide du maintien, pas la frappe d'une
         // autre touche. C'est la saveur « tap-preferred », et 175 ms est le
-        // TAPPING_TERM lu dans le .vil.
+        // TAPPING_TERM de l'époque Vial.
         hm: home_row_mod {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
