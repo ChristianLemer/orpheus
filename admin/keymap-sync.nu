@@ -7,11 +7,13 @@
 # qu'ils ont pris du retard, ce qui est la seule chose qu'une machine sait faire
 # honnêtement ici.
 
+def admin [] { $env.FILE_PWD? | default $env.PWD }
+
 def registry [] {
-  open ([($env.FILE_PWD? | default $env.PWD) "keyboards.nuon"] | path join)
+  open ([(admin) "keyboards.nuon"] | path join)
 }
 
-# Toutes les touches d'un keymap, aplaties en {couche, rangée, position, code}.
+# Toutes les touches d'un .vil, aplaties en {couche, rangée, position, code}.
 def touches [keymap] {
   $keymap.layout | enumerate | each {|l|
     $l.item | enumerate | each {|r|
@@ -22,27 +24,45 @@ def touches [keymap] {
   } | flatten | flatten
 }
 
+# Même chose pour un .keymap ZMK, lu par keymap-drawer. Les couches y ont un nom ;
+# un keymap ZMK est une liste plate, découpée ici en rangées de dix.
+def touches-zmk [texte: string] {
+  let source = (mktemp --suffix .keymap)
+  let lu = ($source | str replace ".keymap" ".yaml")
+  $texte | save -f $source
+  uvx --from keymap-drawer keymap -c ([(admin) "keymap-drawer.yaml"] | path join) parse -z $source -o $lu
+  let couches = (open $lu | get layers | transpose couche touches)
+  rm $source $lu
+  $couches | each {|l|
+    $l.touches | enumerate | each {|k|
+      {couche: $l.couche, rangee: ($k.index // 10), position: ($k.index mod 10), code: ($k.item | to nuon)}
+    }
+  } | flatten
+}
+
 def main [
-  vil_path?: path   # Le .vil à synchroniser ; tous les claviers vérifiés si omis
+  keymap_path?: path   # Le .vil ou .keymap à synchroniser ; tous les claviers vérifiés si omis
   --depuis: string = "HEAD"  # Référence git de comparaison
 ] {
-  let cibles = if $vil_path == null {
+  let cibles = if $keymap_path == null {
     registry | where verified | get config
   } else {
-    [($vil_path | path expand | str replace $"(pwd)/" "")]
+    [($keymap_path | path expand | str replace $"(pwd)/" "")]
   }
 
   for cible in $cibles {
     print $"╭─ ($cible)"
 
-    let courant = (open --raw $cible | from json)
-    let commite = (do -i { git show $"($depuis):($cible)" | from json })
+    let zmk = (($cible | path parse | get extension) == "keymap")
+    let courant = if $zmk { open --raw $cible } else { open --raw $cible | from json }
+    let lu = (git show $"($depuis):($cible)" | complete)
+    let commite = if $lu.exit_code != 0 { null } else if $zmk { $lu.stdout } else { $lu.stdout | from json }
 
     if ($commite | is-empty) {
       print $"│  ⚠ absent de ($depuis) — nouveau fichier, rien à comparer"
     } else {
-      let avant = (touches $commite)
-      let apres = (touches $courant)
+      let avant = if $zmk { touches-zmk $commite } else { touches $commite }
+      let apres = if $zmk { touches-zmk $courant } else { touches $courant }
       let bouges = (
         $apres | zip $avant
         | where {|p| $p.0.code != $p.1.code }
@@ -56,35 +76,44 @@ def main [
         $bouges | each {|b| print $"│      couche ($b.couche) · rangée ($b.rangee) · pos ($b.pos) : ($b.avant) → ($b.apres)" } | ignore
       }
 
-      let macros_avant = ($commite.macro | where {|m| ($m | length) > 0 } | length)
-      let macros_apres = ($courant.macro | where {|m| ($m | length) > 0 } | length)
-      if $macros_avant != $macros_apres {
-        print $"│  ≠ macros non vides : ($macros_avant) → ($macros_apres)"
+      if not $zmk {
+        let macros_avant = ($commite.macro | where {|m| ($m | length) > 0 } | length)
+        let macros_apres = ($courant.macro | where {|m| ($m | length) > 0 } | length)
+        if $macros_avant != $macros_apres {
+          print $"│  ≠ macros non vides : ($macros_avant) → ($macros_apres)"
+        }
       }
     }
 
     # Touches pointant vers une macro vide : le piège qui a coûté une touche morte
-    # sur la couche souris du Halcyon pendant des mois.
-    let vides = (
+    # sur la couche souris du Halcyon pendant des mois. Propre à Vial : en ZMK, une
+    # macro qui n'existe pas empêche le firmware de compiler.
+    let vides = if $zmk { [] } else {
       touches $courant
       | where {|t| $t.code =~ '^M[0-9]+$' }
       | where {|t|
           let n = ($t.code | str substring 1.. | into int)
           ($courant.macro | get --optional $n | default [] | length) == 0
         }
-    )
+    }
     if not ($vides | is-empty) {
       print $"│  ⚠ ($vides | length) touche(s) liée(s) à une macro vide — elles ne produisent rien :"
       $vides | each {|t| print $"│      couche ($t.couche) · rangée ($t.rangee) · pos ($t.position) : ($t.code)" } | ignore
     }
 
-    nu ([($env.FILE_PWD? | default $env.PWD) "vil-to-svg.nu"] | path join) $cible
+    nu ([(admin) "keymap-to-svg.nu"] | path join) $cible
 
-    let annote = ($cible | path parse | update stem {|p| $"($p.stem)-annotated" } | update extension "svg" | path join)
+    # Le SVG annoté et l'audit accompagnent le SVG dessiné, pas le fichier source :
+    # le .keymap du Halcyon vit dans zmk/, ses documents dans keyboards/splitkb/.
+    let svg = (
+      registry | where config == $cible | get --optional 0.svg
+      | default ($cible | path parse | update extension "svg" | path join)
+    )
+    let annote = ($svg | path parse | update stem {|p| $"($p.stem)-annotated" } | path join)
     if ($annote | path exists) {
       print $"│  ✋ ($annote | path basename) est écrit à la main — à relire si des touches ont bougé"
     }
-    let audit = ($cible | path parse | update stem {|p| $"($p.stem)-audit" } | update extension "md" | path join)
+    let audit = ($svg | path parse | update stem {|p| $"($p.stem)-audit" } | update extension "md" | path join)
     if ($audit | path exists) {
       print $"│  ✋ ($audit | path basename) : snapshot et pistes à relire, sections 1 et 7"
     }

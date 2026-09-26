@@ -170,8 +170,8 @@ rect.key.activator { fill: #fef3e8; }
 rect.key.trans { fill: #f8f8f8; opacity: 0.4; }
 
 /* La touche que l'on tient pour atteindre cette couche. Elle ne porte
-   aucun texte, et keymap-drawer ne la marque que pour un MO() — donc sur
-   Symbols et Operators, pas sur Nav ni Mouse, qui s'ouvrent par un LT().
+   aucun texte. Lu depuis un .keymap, keymap-drawer la marque sur chaque
+   couche tenue ; depuis un .vil, seulement pour un MO(), pas un LT().
    Seul le cerclage la signale : indépendant du thème et du contraste. */
 rect.key.held:not(.side) { stroke-width: 3; }
 .layer-Base      rect.key.held:not(.side) { stroke: #1565c0; }
@@ -516,7 +516,7 @@ text.key.tap.layer-activator { font-size: 10px; }
 <g transform="translate(644, 136)" class="key keypos-19">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
 <rect rx="4" ry="4" x="-21" y="-24" width="42" height="42" class="key"/>
-<text x="0" y="24" class="key hold">Shift</text>
+<text x="0" y="-3" class="key tap">Shift</text>
 </g>
 <g transform="translate(28, 192)" class="key keypos-20">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
@@ -575,10 +575,9 @@ text.key.tap.layer-activator { font-size: 10px; }
 <rect rx="4" ry="4" x="-21" y="-24" width="42" height="42" class="key trans"/>
 <text x="0" y="-3" class="key trans tap">▽</text>
 </g>
-<g transform="translate(392, 252)" class="key trans keypos-32">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans side"/>
-<rect rx="4" ry="4" x="-21" y="-24" width="42" height="42" class="key trans"/>
-<text x="0" y="-3" class="key trans tap">▽</text>
+<g transform="translate(392, 252)" class="key held keypos-32">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key held side"/>
+<rect rx="4" ry="4" x="-21" y="-24" width="42" height="42" class="key held"/>
 </g>
 <g transform="translate(448, 238)" class="key trans keypos-33">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans side"/>
@@ -806,7 +805,7 @@ text.key.tap.layer-activator { font-size: 10px; }
 <g transform="translate(196, 100)" class="key keypos-13">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
 <rect rx="4" ry="4" x="-21" y="-24" width="42" height="42" class="key"/>
-<text x="0" y="-3" class="key tap">−</text>
+<text x="0" y="-3" class="key tap">-</text>
 </g>
 <g transform="translate(252, 108)" class="key keypos-14">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
@@ -1038,9 +1037,9 @@ text.key.tap.layer-activator { font-size: 10px; }
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
 <rect rx="4" ry="4" x="-21" y="-24" width="42" height="42" class="key"/>
 </g>
-<g transform="translate(280, 252)" class="key keypos-31">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
-<rect rx="4" ry="4" x="-21" y="-24" width="42" height="42" class="key"/>
+<g transform="translate(280, 252)" class="key held keypos-31">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key held side"/>
+<rect rx="4" ry="4" x="-21" y="-24" width="42" height="42" class="key held"/>
 </g>
 <g transform="translate(392, 252)" class="key keypos-32">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>

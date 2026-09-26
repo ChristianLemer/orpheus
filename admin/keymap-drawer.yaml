@@ -56,8 +56,8 @@ draw_config:
     rect.key.trans { fill: #f8f8f8; opacity: 0.4; }
 
     /* La touche que l'on tient pour atteindre cette couche. Elle ne porte
-       aucun texte, et keymap-drawer ne la marque que pour un MO() — donc sur
-       Symbols et Operators, pas sur Nav ni Mouse, qui s'ouvrent par un LT().
+       aucun texte. Lu depuis un .keymap, keymap-drawer la marque sur chaque
+       couche tenue ; depuis un .vil, seulement pour un MO(), pas un LT().
        Seul le cerclage la signale : indépendant du thème et du contraste. */
     rect.key.held:not(.side) { stroke-width: 3; }
     .layer-Base      rect.key.held:not(.side) { stroke: #1565c0; }
@@ -148,6 +148,17 @@ parse_config:
     LSFT(KC_QUOTE): '"'
     LSFT(KC_GRAVE): "~"
     LSFT(KC_BSLASH): "|"
+    "&mkp LCLK": Left
+    "&mkp RCLK": Right
+    "&mkp MCLK": Middle
+    "&mmv MOVE_LEFT": "←"
+    "&mmv MOVE_RIGHT": "→"
+    "&mmv MOVE_UP": "↑"
+    "&mmv MOVE_DOWN": "↓"
+    "&msc SCRL_LEFT": "⇤"
+    "&msc SCRL_RIGHT": "⇥"
+    "&msc SCRL_UP": "⇡"
+    "&msc SCRL_DOWN": "⇣"
   qmk_keycode_map:
     XXXXXXX: ''
     'NO': ''
@@ -230,3 +241,68 @@ parse_config:
     right_gui: Gui
     keycode_combiner: '{mods}+{key}'
     mod_combiner: '{mod_1}+{mod_2}'
+  # Mêmes légendes pour un keymap ZMK : ses noms de touches ne sont pas ceux de QMK.
+  zmk_keycode_map:
+    LSHFT: Shift
+    RSHFT: Shift
+    LCTRL: Ctrl
+    RCTRL: Ctrl
+    LALT: Alt
+    RALT: AltGr
+    LGUI: Gui
+    RGUI: Gui
+    SPACE: Space
+    CAPS: CapsLk
+    BSPC: Bksp
+    RET: Enter
+    ESC: Esc
+    TAB: Tab
+    DEL: Del
+    INS: Ins
+    PSCRN: PrtSc
+    PAUSE_BREAK: Pause
+    HOME: Home
+    END: End
+    PG_UP: PgUp
+    PG_DN: PgDn
+    LEFT: "←"
+    RIGHT: "→"
+    UP: "↑"
+    DOWN: "↓"
+    C_PREV: Prev
+    C_NEXT: Next
+    C_VOL_DN: Vol-
+    C_VOL_UP: Vol+
+    C_MUTE: Mute
+    # Cette table remplace celle de keymap-drawer au lieu de la compléter : sans ces
+    # lignes, la couche Symbols affiche EXCL, AMPS, LBRC.
+    EXCL: "!"
+    AT: "@"
+    HASH: "#"
+    DLLR: $
+    PRCNT: "%"
+    CARET: ^
+    AMPS: "&"
+    STAR: "*"
+    LPAR: (
+    RPAR: )
+    LT: <
+    GT: ">"
+    LBKT: "["
+    RBKT: "]"
+    LBRC: "{"
+    RBRC: "}"
+    BSLH: \
+    PIPE: "|"
+    EQUAL: "="
+    PLUS: +
+    MINUS: "-"
+    UNDER: _
+    TILDE: "~"
+    SQT: "'"
+    DQT: '"'
+    GRAVE: '`'
+    COMMA: ','
+    DOT: .
+    FSLH: /
+    SEMI: ;
